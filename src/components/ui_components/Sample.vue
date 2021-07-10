@@ -11,7 +11,10 @@
         <Code class="mx-3" tag="" :attr="computedAttr"></Code>
       </v-col>
       <v-col cols="12" sm="4" lg="6">
-        <Grid switch=""></Grid>
+        <Grid switch="">
+          <template v-slot:switch></template>
+          <template v-slot:slider></template>
+        </Grid>
         <v-slider
           label=""
           v-model="model"
@@ -49,9 +52,8 @@ export default {
     attrArray() {
       this.attr = [];
       let attr = this.attr;
-      let value = this.computedValue;
-      value === '' ? null : attr.push({ name: 'value', value: value });
-      value === true ? attr.push({ name: 'value' }) : null;
+      this.checkBoolean(attr);
+      this.checkValue(attr);
       return attr;
     },
   },

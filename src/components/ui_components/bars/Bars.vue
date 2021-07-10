@@ -10,14 +10,16 @@
       でできることと大体変わらないと思うので割愛。
     </v-card-subtitle>
     <AppBars class="mb-4"></AppBars>
+    <SystemBars class="mb-4"></SystemBars>
   </v-card>
 </template>
 
 <script>
 import AppBars from '@/components/ui_components/bars/AppBars.vue';
+import SystemBars from '@/components/ui_components/bars/SystemBars.vue';
 
 export default {
-  name: '',
-  components: { AppBars },
+  name: 'Bars',
+  components: { AppBars, SystemBars },
 };
 </script>
