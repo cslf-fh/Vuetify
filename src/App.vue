@@ -123,55 +123,6 @@
     </v-card>
     <v-main :class="{ 'ml-14': drawerType !== 'temporary' }">
       <router-view />
-      <!-- bottom-sheet -->
-      <v-bottom-sheet inset>
-        <template v-slot:activator="{ on, attrs }">
-          <v-btn color="red" dark v-bind="attrs" v-on="on"> Open Player </v-btn>
-        </template>
-        <v-card tile>
-          <v-progress-linear
-            :value="50"
-            class="my-0"
-            height="3"
-          ></v-progress-linear>
-
-          <v-list>
-            <v-list-item>
-              <v-list-item-content>
-                <v-list-item-title>The Walker</v-list-item-title>
-                <v-list-item-subtitle
-                  >Fitz & The Trantrums</v-list-item-subtitle
-                >
-              </v-list-item-content>
-
-              <v-spacer></v-spacer>
-
-              <v-list-item-icon>
-                <v-btn icon>
-                  <v-icon>mdi-rewind</v-icon>
-                </v-btn>
-              </v-list-item-icon>
-
-              <v-list-item-icon
-                :class="{ 'mx-5': $vuetify.breakpoint.mdAndUp }"
-              >
-                <v-btn icon>
-                  <v-icon>mdi-pause</v-icon>
-                </v-btn>
-              </v-list-item-icon>
-
-              <v-list-item-icon
-                class="ml-0"
-                :class="{ 'mr-3': $vuetify.breakpoint.mdAndUp }"
-              >
-                <v-btn icon>
-                  <v-icon>mdi-fast-forward</v-icon>
-                </v-btn>
-              </v-list-item-icon>
-            </v-list-item>
-          </v-list>
-        </v-card>
-      </v-bottom-sheet>
       <!-- breadcrumbs -->
       <v-breadcrumbs :items="items" divider="-"></v-breadcrumbs>
       <!-- btn -->
@@ -931,7 +882,6 @@ export default {
       drawer: false,
       drawerType: 'temporary',
       mini: false,
-      //test
       //breadcrumbs
       items: [
         {
@@ -1096,6 +1046,10 @@ export default {
             {
               name: 'Bottom sheets',
               link: '/components/#bottom-sheets',
+            },
+            {
+              name: 'Breadcrumbs',
+              link: '/components/#breadcrumbs',
             },
           ],
         },

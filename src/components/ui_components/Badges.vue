@@ -12,13 +12,18 @@
       <code class="text-subtitle-1">v-hover</code>
       を使用。
       <br />
-      hover時のトランジションは
-      <a href="http://localhost:8081/#/styles/#transitions" target="_blank">
-        こちら
-        <v-icon color="primary" small>mdi-open-in-new</v-icon>
-      </a>
+      hover時の
+      <code class="text-subtitle-1">transition</code>
+      プロパティは
+      <LinkText
+        link="to"
+        url="/styles/#transitions"
+        text="こちら"
+        icon="mdi-open-in-new"
+      ></LinkText>
       を参照。
     </v-card-subtitle>
+    <div class="py-1"></div>
     <v-row no-gutters>
       <v-col cols="12" sm="8" lg="6">
         <div class="d-flex justify-space-around">
@@ -179,6 +184,7 @@ export default {
       offsetY: 0,
       overlap: false,
       tile: false,
+      href: 'http://localhost:8081/#/styles/#transitions',
     };
   },
   computed: {

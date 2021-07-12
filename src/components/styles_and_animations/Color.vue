@@ -3,12 +3,12 @@
     <v-card-title class="text-h4">Color</v-card-title>
     <v-card-subtitle class="text--primary text-left text-subtitle-1 mt-0">
       Material Design仕様の色を使える。詳しくは
-      <a
-        href="https://vuetifyjs.com/ja/styles/colors/#section-30de30c630ea30a230eb30ab30e930fc"
-        target="_blank"
-        >公式ドキュメント
-        <v-icon color="primary" small>mdi-open-in-new</v-icon></a
-      >
+      <LinkText
+        link="href"
+        url="https://vuetifyjs.com/ja/styles/colors/#section-30de30c630ea30a230eb30ab30e930fc"
+        text="公式ドキュメント"
+        icon="mdi-open-in-new"
+      ></LinkText>
       を参照。そのまま使用するとbackground、
       <code class="text-subtitle-1">--text</code>
       を追加するとtextに適用される。

@@ -9,6 +9,7 @@
     <Bars id="bars" class="mb-4"></Bars>
     <BottomNavigation id="bottom-navigation" class="mb-4"></BottomNavigation>
     <BottomSheets id="bottom-sheets" class="mb-4"></BottomSheets>
+    <Breadcrumbs id="breadcrumbs" class="mb-4"></Breadcrumbs>
   </v-container>
 </template>
 
@@ -21,6 +22,7 @@ import Banners from '@/components/ui_components/Banners.vue';
 import Bars from '@/components/ui_components/bars/Bars.vue';
 import BottomNavigation from '@/components/ui_components/BottomNavigation.vue';
 import BottomSheets from '@/components/ui_components/BottomSheets.vue';
+import Breadcrumbs from '@/components/ui_components/Breadcrumbs.vue';
 
 export default {
   name: 'UIComponents',
@@ -33,6 +35,7 @@ export default {
     Bars,
     BottomNavigation,
     BottomSheets,
+    Breadcrumbs,
   },
 };
 </script>

@@ -220,7 +220,7 @@
 
 <script>
 export default {
-  name: '',
+  name: 'BottomSheets',
   data() {
     return {
       attr: [],
