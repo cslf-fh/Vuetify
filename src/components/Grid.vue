@@ -1,7 +1,7 @@
 <template>
   <div>
     <v-row no-gutters>
-      <v-col v-for="i in switches" :key="'switch' + i" cols="6" lg="4">
+      <v-col v-for="i in switches" :key="'switch' + i" cols="4" sm="6" lg="4">
         <slot :name="'switch' + i"></slot>
       </v-col>
       <v-col cols="12">

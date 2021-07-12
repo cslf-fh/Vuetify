@@ -1093,6 +1093,10 @@ export default {
               name: 'Bottom navigation',
               link: '/components/#bottom-navigation',
             },
+            {
+              name: 'Bottom sheets',
+              link: '/components/#bottom-sheets',
+            },
           ],
         },
         {

@@ -65,7 +65,7 @@
           <v-checkbox v-model="append" label="append slot"></v-checkbox>
           <v-checkbox v-model="close" label="close slot"></v-checkbox>
         </div>
-        <Code class="mx-3" tag="v-alert" :attr="computedAttr"></Code>
+        <Code class="mx-3 mb-3" tag="v-alert" :attr="computedAttr"></Code>
       </v-col>
       <v-col cols="12" sm="4" lg="6">
         <v-slider

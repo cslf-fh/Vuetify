@@ -90,7 +90,7 @@
           <v-btn @click="content = 0"> reset content </v-btn>
         </div>
         <div class="py-3"></div>
-        <Code class="mx-3" tag="v-badge" :attr="computedAttr"></Code>
+        <Code class="mx-3 mb-3" tag="v-badge" :attr="computedAttr"></Code>
       </v-col>
       <v-col cols="12" sm="4" lg="6">
         <Grid switch="2">

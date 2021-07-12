@@ -38,7 +38,7 @@
           </v-avatar>
         </div>
         <div class="py-3"></div>
-        <Code class="mx-3" tag="v-avatar" :attr="computedAttr"></Code>
+        <Code class="mx-3 mb-3" tag="v-avatar" :attr="computedAttr"></Code>
       </v-col>
       <v-col cols="12" sm="4" lg="6">
         <v-slider

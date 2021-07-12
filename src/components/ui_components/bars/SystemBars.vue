@@ -34,7 +34,7 @@
           <span>12:30</span>
         </v-system-bar>
         <div class="py-3"></div>
-        <Code class="mx-3" tag="v-system-bar" :attr="computedAttr"></Code>
+        <Code class="mx-3 mb-3" tag="v-system-bar" :attr="computedAttr"></Code>
       </v-col>
       <v-col cols="12" sm="4" lg="6">
         <Grid switch="3">

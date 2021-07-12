@@ -66,7 +66,7 @@
         </v-card>
         <div class="py-3"></div>
         <Code
-          class="mx-3"
+          class="mx-3 mb-3"
           tag="v-bottom-navigation"
           :attr="computedAttr"
         ></Code>

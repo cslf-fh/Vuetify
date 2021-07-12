@@ -8,6 +8,7 @@
     <Banners id="banners" class="mb-4"></Banners>
     <Bars id="bars" class="mb-4"></Bars>
     <BottomNavigation id="bottom-navigation" class="mb-4"></BottomNavigation>
+    <BottomSheets id="bottom-sheets" class="mb-4"></BottomSheets>
   </v-container>
 </template>
 
@@ -19,6 +20,7 @@ import Badges from '@/components/ui_components/Badges.vue';
 import Banners from '@/components/ui_components/Banners.vue';
 import Bars from '@/components/ui_components/bars/Bars.vue';
 import BottomNavigation from '@/components/ui_components/BottomNavigation.vue';
+import BottomSheets from '@/components/ui_components/BottomSheets.vue';
 
 export default {
   name: 'UIComponents',
@@ -30,6 +32,7 @@ export default {
     Banners,
     Bars,
     BottomNavigation,
+    BottomSheets,
   },
 };
 </script>

@@ -15,7 +15,7 @@
           </v-responsive>
         </v-card>
         <div class="py-3"></div>
-        <Code class="mx-3" tag="v-responseve" :attr="computedAttr"></Code>
+        <Code class="mx-3 mb-3" tag="v-responseve" :attr="computedAttr"></Code>
       </v-col>
       <v-col cols="12" sm="4" lg="6">
         <v-slider label="x" v-model="x" max="20" min="1" thumb-label></v-slider>
