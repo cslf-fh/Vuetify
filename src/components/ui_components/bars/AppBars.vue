@@ -44,7 +44,7 @@
           :collapse="collapse"
           :collapse-on-scroll="collapseOnScroll"
           :color="computedColor"
-          scroll-target="#scrolling-techniques-6"
+          scroll-target="#scrolling-techniques"
           :dense="dense"
           :elevate-on-scroll="elevateOnScroll"
           :elevation="elevation"
@@ -87,7 +87,7 @@
           </v-btn>
         </v-app-bar>
         <v-sheet
-          id="scrolling-techniques-6"
+          id="scrolling-techniques"
           class="overflow-y-auto mx-3"
           max-height="600"
         >
@@ -171,7 +171,7 @@
             <v-slider
               label="scroll-threshold"
               v-model="scrollThreshold"
-              max="300"
+              max="500"
               min="0"
               step="10"
               thumb-label

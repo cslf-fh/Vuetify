@@ -76,16 +76,46 @@
                   </v-list-item-title>
                 </v-list-item-content>
               </template>
-              <v-list-item
-                v-for="list in nav_list.lists"
-                :key="list.name"
-                :to="list.link"
-                @click="drawerType === 'miniVariant' ? (mini = true) : null"
-              >
-                <v-list-item-title>
-                  {{ list.name }}
-                </v-list-item-title>
-              </v-list-item>
+              <template v-for="list in nav_list.lists">
+                <v-list-item
+                  v-if="!list.lists"
+                  :key="list.name"
+                  :to="list.link"
+                  @click="drawerType === 'miniVariant' ? (mini = true) : null"
+                >
+                  <v-list-item-title>
+                    {{ list.name }}
+                  </v-list-item-title>
+                </v-list-item>
+                <v-list-group
+                  v-else
+                  no-action
+                  sub-group
+                  :key="list.name"
+                  v-model="list.active"
+                >
+                  <template v-slot:activator>
+                    <v-list-item-content>
+                      <v-list-item-title>
+                        {{ list.name }}
+                      </v-list-item-title>
+                    </v-list-item-content>
+                  </template>
+                  <template v-for="sub in list.lists">
+                    <v-list-item
+                      :key="sub.name"
+                      :to="sub.link"
+                      @click="
+                        drawerType === 'miniVariant' ? (mini = true) : null
+                      "
+                    >
+                      <v-list-item-title>
+                        {{ sub.name }}
+                      </v-list-item-title>
+                    </v-list-item>
+                  </template>
+                </v-list-group>
+              </template>
             </v-list-group>
           </template>
         </v-list>
@@ -93,55 +123,6 @@
     </v-card>
     <v-main :class="{ 'ml-14': drawerType !== 'temporary' }">
       <router-view />
-      <!-- bottom-navigation -->
-      <v-card class="mx-auto overflow-hidden">
-        <v-bottom-navigation
-          absolute
-          color="white"
-          hide-on-scroll
-          horizontal
-          scroll-target="#scroll-threshold-example"
-          scroll-threshold="100"
-        >
-          <v-btn>
-            <span>Recents</span>
-            <v-icon>mdi-history</v-icon>
-          </v-btn>
-          <v-btn>
-            <span>Favorites</span>
-            <v-icon>mdi-heart</v-icon>
-          </v-btn>
-          <v-btn>
-            <span>Nearby</span>
-            <v-icon>mdi-map-marker</v-icon>
-          </v-btn>
-        </v-bottom-navigation>
-        <v-sheet
-          id="scroll-threshold-example"
-          class="overflow-y-auto pb-16"
-          max-height="200"
-        >
-          <v-responsive height="300"></v-responsive>
-        </v-sheet>
-      </v-card>
-      <v-bottom-navigation v-model="value" shift>
-        <v-btn>
-          <span>Video</span>
-          <v-icon>mdi-television-play</v-icon>
-        </v-btn>
-        <v-btn>
-          <span>Music</span>
-          <v-icon>mdi-music-note</v-icon>
-        </v-btn>
-        <v-btn>
-          <span>Book</span>
-          <v-icon>mdi-book</v-icon>
-        </v-btn>
-        <v-btn>
-          <span>Image</span>
-          <v-icon>mdi-image</v-icon>
-        </v-btn>
-      </v-bottom-navigation>
       <!-- bottom-sheet -->
       <v-bottom-sheet inset>
         <template v-slot:activator="{ on, attrs }">
@@ -951,7 +932,6 @@ export default {
       drawerType: 'temporary',
       mini: false,
       //test
-      value: 1, //bottom navigation
       //breadcrumbs
       items: [
         {
@@ -1074,6 +1054,46 @@ export default {
           name: 'UI Components',
           icon: 'mdi-view-dashboard',
           link: '/components',
+          lists: [
+            {
+              name: 'Alerts',
+              link: '/components/#alerts',
+            },
+            {
+              name: 'Aspect ratio',
+              link: '/components/#aspect-ratio',
+            },
+            {
+              name: 'Avatars',
+              link: '/components/#avatars',
+            },
+            {
+              name: 'Badges',
+              link: '/components/#badges',
+            },
+            {
+              name: 'Banners',
+              link: '/components/#banners',
+            },
+            {
+              name: 'Bars',
+              link: '/components/#bars',
+              lists: [
+                {
+                  name: 'App bars',
+                  link: '/components/#app-bars',
+                },
+                {
+                  name: 'System bars',
+                  link: '/components/#system-bars',
+                },
+              ],
+            },
+            {
+              name: 'Bottom navigation',
+              link: '/components/#bottom-navigation',
+            },
+          ],
         },
         {
           name: 'Directives',
@@ -1087,14 +1107,6 @@ export default {
         },
       ],
     };
-  },
-  inject: {
-    //skeleton-loaders
-    inject: {
-      theme: {
-        default: { isDark: false },
-      },
-    },
   },
   created() {
     this.$vuetify.theme.dark = themeStorage.fetch();

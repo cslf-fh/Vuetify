@@ -8,5 +8,10 @@ export default {
         ? null
         : attr.push({ name: String(name), value: String(value) });
     },
+    checkValuePrefix(attr, value, prefix, name, check) {
+      value === check
+        ? null
+        : attr.push({ name: String(prefix + name), value: String(value) });
+    },
   },
 };
