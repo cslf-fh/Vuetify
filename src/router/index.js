@@ -3,8 +3,7 @@ import VueRouter from 'vue-router';
 import Home from '../views/Home.vue';
 import StylesAndAnimations from '../views/StylesAndAnimations.vue';
 import UIComponents from '../views/UIComponents.vue';
-import About from '../views/About.vue';
-import Contact from '../views/Contact.vue';
+import Test from '../views/Test.vue';
 import goTo from 'vuetify/lib/services/goto';
 
 Vue.use(VueRouter);
@@ -52,16 +51,10 @@ export default new VueRouter({
       },
     },
     {
-      path: '/about',
-      name: 'about',
-      component: About,
-      meta: { title: 'about | vue_spa', desc: 'about' },
-    },
-    {
-      path: '/contact',
-      name: 'contact',
-      component: Contact,
-      meta: { title: 'contact | vue_spa', desc: 'contact' },
+      path: '/test',
+      name: 'Test',
+      component: Test,
+      meta: { title: 'test | vue_spa', desc: 'test' },
     },
   ],
 });
