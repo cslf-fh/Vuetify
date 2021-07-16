@@ -54,8 +54,19 @@
         <div class="d-flex flex-wrap justify-space-around">
           <v-checkbox v-model="actions" label="actions slot"></v-checkbox>
         </div>
-        <div class="py-3"></div>
-        <Code class="mx-3 mb-3" tag="v-banner" :attr="computedAttr"></Code>
+        <Code
+          class="mx-3 mb-3"
+          tag="v-banner"
+          :attr="computedAttr"
+          :nest="actions"
+          :slots="true"
+          slotName="actoins"
+          slotProps="dismiss"
+          tagNest="v-btn"
+          :attrNest="[{ name: '@click', value: 'dismiss' }]"
+          :textsNest="true"
+          textNest="dismiss"
+        ></Code>
       </v-col>
       <v-col cols="12" sm="4" lg="6">
         <Grid switch="2">
@@ -140,7 +151,7 @@ export default {
       colors: ['', 'primary', 'success'],
       elevation: 0,
       icon: 0,
-      icons: ['', 'mdi-account', 'mdi-vuetify'],
+      icons: ['', 'account', 'vuetify'],
       iconColor: 0,
       iconColors: ['', 'white', 'orange'],
       outlined: false,
@@ -157,7 +168,9 @@ export default {
       return color;
     },
     computedIcon() {
-      let icon = this.icons[this.icon];
+      let icon = 'mdi';
+      const icons = this.icons[this.icon];
+      icons === '' ? (icon = '') : (icon += `-${icons}`);
       return icon;
     },
     computedIconColor() {

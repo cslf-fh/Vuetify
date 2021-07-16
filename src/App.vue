@@ -1129,6 +1129,10 @@ export default {
 </script>
 
 <style lang="scss">
+::selection {
+  text-shadow: none;
+  background: rgba(33, 150, 243, 0.4);
+}
 //card
 .v-card--reveal {
   bottom: 0;

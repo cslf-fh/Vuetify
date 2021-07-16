@@ -2,36 +2,230 @@
   <v-card class="text-left px-4 py-3 code" flat tile outlined>
     <v-hover>
       <template v-slot:default="{ hover }">
-        <v-btn absolute right icon @click="witeToClipboard()">
-          <v-icon :color="hover ? 'gray' : 'gray lighten-1'"
-            >mdi-content-copy</v-icon
-          >
+        <v-btn
+          class="mt-n2 mr-n2"
+          absolute
+          top
+          right
+          icon
+          rounded
+          @click="witeToClipboard()"
+        >
+          <v-icon :color="hover ? 'gray darken-1' : 'gray lighten-1'">{{
+            btnIcon
+          }}</v-icon>
         </v-btn>
       </template>
     </v-hover>
+    <!--
     <v-snackbar v-model="snackbar" multi-line :timeout="timeout">
-      {{ text }}
+      {{ copied }}
       <template v-slot:action="{ attrs }">
         <v-btn color="primary" text v-bind="attrs" @click="snackbar = false">
           Close
         </v-btn>
       </template>
     </v-snackbar>
-    <div ref="copied">
-      <div>
-        &lt;<span class="code__tag">{{ tag }}</span>
-      </div>
-      <div class="ml-4" v-for="(attr, index) in attr" :key="index">
-        <span class="code__attr--name">{{ attr.name }}</span
-        ><span v-if="attr.value">="</span
-        ><span class="code__attr--value">{{ attr.value }}</span
-        ><span v-if="attr.value">"</span>
-      </div>
-      <div>
-        &gt;&lt;<span class="code__tag">{{ tag }}</span
-        >&gt;
-      </div>
-    </div>
+    -->
+    <pre ref="copied" class="code__pre"><!--
+   -->&lt;<!--
+   --><span class="code__tag">{{ tag }}</span><!--
+   --><span v-if="!attr.length">&gt;</span><!--
+   --><span v-if="attr.length"><br /></span><!--
+   --><span v-for="(attr, index) in attr" :key="index"><!--
+     -->&#9;<span class="code__attr--name">{{ attr.name }}</span><!--
+     --><span v-if="attr.value"><!--
+       -->="<!--
+       --><span class="code__attr--value">{{ attr.value }}</span><!--
+       -->"<!--
+     --></span><!--
+     --><br /><!--
+   --></span><!--
+   --><span v-if="attr.length">&gt;</span><!--
+   --><span v-if="nest"><!--
+     --><br /><!--
+     --><span v-if="slots"><!--
+       -->&#9;&lt;<!--
+       --><span class="code__tag">template </span><!--
+       --><span class="code__attr--name">v-slot:{{ slotName }}</span><!--
+       --><span v-if="slotProps"><!--
+         -->="<!--
+         --><span class="code__attr--value">{ {{ slotProps }} }</span><!--
+         -->"<!--
+       --></span><!--
+       -->&gt;<!--
+       --><br /><!--
+       -->&#9;&#9;&lt;<!--
+       --><span class="code__tag">{{ tagNest }}</span><!--
+       --><span v-if="!attrNest">&gt;</span><!--
+       --><br v-if="attrNest"><!--
+       --><span  v-for="(attr, index) in attrNest" :key="index"><!--
+         -->&#9;&#9;&#9;<span class="code__attr--name">{{ attr.name }}</span><!--
+         --><span v-if="attr.value"><!--
+           -->="<!--
+           --><span class="code__attr--value">{{ attr.value }}</span><!--
+           -->"<!--
+         --></span><!--
+         --><br /><!--
+       --></span><!--
+       --><span v-if="attrNest">&#9;&#9;&gt;</span><!--
+       --><span v-if="textsNest"><br />&#9;&#9;&#9;{{ textNest }}<br />&#9;&#9;</span><!--
+       -->&lt;/<!--
+       --><span class="code__tag">{{ tagNest }}</span><!--
+       -->&gt;<!--
+       --><br /><!--
+       -->&#9;&lt;/<!--
+       --><span class="code__tag">template</span><!--
+       -->&gt;<!--
+       --><br /><!--
+     --></span><!--
+     --><span v-if="!slots"><!--
+       -->&#9;&lt;<!--
+       --><span class="code__tag">{{ tagNest }}</span><!--
+       --><span v-if="!attrNest">&gt;</span><!--
+       --><span v-if="attrNest"><br /></span><!--
+       --><span v-for="(attr, index) in attrNest" :key="index"><!--
+         -->&#9;&#9;<span class="code__attr--name">{{ attr.name }}</span><!--
+         --><span v-if="attr.value"><!--
+           -->="<!--
+           --><span class="code__attr--value">{{ attr.value }}</span><!--
+           -->"<!--
+         --></span><!--
+         --><br /><!--
+       --></span><!--
+       --><span v-if="attrNest">&#9;&gt;</span><!--
+       --><span v-if="textsNest"><br />&#9;&#9;&#9;{{ textNest }}<br />&#9;&#9;</span><!--
+       -->&lt;/<!--
+       --><span class="code__tag">{{ tagNest }}</span><!--
+       -->&gt;<!--
+       --><br /><!--
+     --></span><!--
+   --></span><!--
+   --><span v-if="nest2"><!--
+     --><br /><!--
+     --><span v-if="slots2"><!--
+       -->&#9;&lt;<!--
+       --><span class="code__tag">template </span><!--
+       --><span class="code__attr--name">v-slot:{{ slotName2 }}</span><!--
+       --><span v-if="slotProps2"><!--
+         -->="<!--
+         --><span class="code__attr--value">{ {{ slotProps2 }} }</span><!--
+         -->"<!--
+       --></span><!--
+       -->&gt;<!--
+       --><br /><!--
+       -->&#9;&#9;&lt;<!--
+       --><span class="code__tag">{{ tagNest2 }}</span><!--
+       --><span v-if="!attrNest2">&gt;</span><!--
+       --><br v-if="attrNest2"><!--
+       --><span  v-for="(attr, index) in attrNest2" :key="index"><!--
+         -->&#9;&#9;&#9;<span class="code__attr--name">{{ attr.name }}</span><!--
+         --><span v-if="attr.value"><!--
+           -->="<!--
+           --><span class="code__attr--value">{{ attr.value }}</span><!--
+           -->"<!--
+         --></span><!--
+         --><br /><!--
+       --></span><!--
+       --><span v-if="attrNest2">&#9;&#9;&gt;</span><!--
+       --><span v-if="textsNest2"><br />&#9;&#9;&#9;{{ textNest2 }}<br />&#9;&#9;</span><!--
+       -->&lt;/<!--
+       --><span class="code__tag">{{ tagNest2 }}</span><!--
+       -->&gt;<!--
+       --><br /><!--
+       -->&#9;&lt;/<!--
+       --><span class="code__tag">template</span><!--
+       -->&gt;<!--
+       --><br /><!--
+     --></span><!--
+     --><span v-if="!slots2"><!--
+       -->&#9;&lt;<!--
+       --><span class="code__tag">{{ tagNest2 }}</span><!--
+       --><span v-if="!attrNest2">&gt;</span><!--
+       --><span v-if="attrNest2"><br /></span><!--
+       --><span v-for="(attr, index) in attrNest2" :key="index"><!--
+         -->&#9;&#9;<span class="code__attr--name">{{ attr.name }}</span><!--
+         --><span v-if="attr.value"><!--
+           -->="<!--
+           --><span class="code__attr--value">{{ attr.value }}</span><!--
+           -->"<!--
+         --></span><!--
+         --><br /><!--
+       --></span><!--
+       --><span v-if="attrNest2">&#9;&gt;</span><!--
+       --><span v-if="textsNest2"><br />&#9;&#9;&#9;{{ textNest2 }}<br />&#9;&#9;</span><!--
+       -->&lt;/<!--
+       --><span class="code__tag">{{ tagNest2 }}</span><!--
+       -->&gt;<!--
+       --><br /><!--
+     --></span><!--
+   --></span><!--
+   --><span v-if="nest3"><!--
+     --><br /><!--
+     --><span v-if="slots3"><!--
+       -->&#9;&lt;<!--
+       --><span class="code__tag">template </span><!--
+       --><span class="code__attr--name">v-slot:{{ slotName3 }}</span><!--
+       --><span v-if="slotProps3"><!--
+         -->="<!--
+         --><span class="code__attr--value">{ {{ slotProps3 }} }</span><!--
+         -->"<!--
+       --></span><!--
+       -->&gt;<!--
+       --><br /><!--
+       -->&#9;&#9;&lt;<!--
+       --><span class="code__tag">{{ tagNest3 }}</span><!--
+       --><span v-if="!attrNest3">&gt;</span><!--
+       --><br v-if="attrNest3"><!--
+       --><span  v-for="(attr, index) in attrNest3" :key="index"><!--
+         -->&#9;&#9;&#9;<span class="code__attr--name">{{ attr.name }}</span><!--
+         --><span v-if="attr.value"><!--
+           -->="<!--
+           --><span class="code__attr--value">{{ attr.value }}</span><!--
+           -->"<!--
+         --></span><!--
+         --><br /><!--
+       --></span><!--
+       --><span v-if="attrNest3">&#9;&#9;&gt;</span><!--
+       --><span v-if="textsNest3"><br />&#9;&#9;&#9;{{ textNest3 }}<br />&#9;&#9;</span><!--
+       -->&lt;/<!--
+       --><span class="code__tag">{{ tagNest3 }}</span><!--
+       -->&gt;<!--
+       --><br /><!--
+       -->&#9;&lt;/<!--
+       --><span class="code__tag">template</span><!--
+       -->&gt;<!--
+       --><br /><!--
+     --></span><!--
+     --><span v-if="!slots3"><!--
+       -->&#9;&lt;<!--
+       --><span class="code__tag">{{ tagNest3 }}</span><!--
+       --><span v-if="!attrNest3">&gt;</span><!--
+       --><span v-if="attrNest3"><br /></span><!--
+       --><span v-for="(attr, index) in attrNest3" :key="index"><!--
+         -->&#9;&#9;<span class="code__attr--name">{{ attr.name }}</span><!--
+         --><span v-if="attr.value"><!--
+           -->="<!--
+           --><span class="code__attr--value">{{ attr.value }}</span><!--
+           -->"<!--
+         --></span><!--
+         --><br /><!--
+       --></span><!--
+       --><span v-if="attrNest3">&#9;&gt;</span><!--
+       --><span v-if="textsNest3"><br />&#9;&#9;&#9;{{ textNest3 }}<br />&#9;&#9;</span><!--
+       -->&lt;/<!--
+       --><span class="code__tag">{{ tagNest3 }}</span><!--
+       -->&gt;<!--
+       --><br /><!--
+     --></span><!--
+   --></span><!--
+   --><span><!--
+     --><span v-if="texts"><br />{{ text }}<br /></span><!--
+     -->&lt;/<!--
+     --><span class="code__tag">{{ tag }}</span><!--
+     -->&gt;<!--
+   --></span><!--
+ --></pre>
   </v-card>
 </template>
 
@@ -41,19 +235,59 @@ export default {
   props: {
     tag: String,
     attr: Array,
+    texts: Boolean,
+    text: String,
+    nest: Boolean,
+    slots: Boolean,
+    slotName: String,
+    slotProps: String,
+    tagNest: String,
+    attrNest: Array,
+    textsNest: Boolean,
+    textNest: String,
+    nest2: Boolean,
+    slots2: Boolean,
+    slotName2: String,
+    slotProps2: String,
+    tagNest2: String,
+    attrNest2: Array,
+    textsNest2: Boolean,
+    textNest2: String,
+    nest3: Boolean,
+    slots3: Boolean,
+    slotName3: String,
+    slotProps3: String,
+    tagNest3: String,
+    attrNest3: Array,
+    textsNest3: Boolean,
+    textNest3: String,
   },
   data() {
     return {
+      btnIcon: 'mdi-content-copy',
+      /*
       snackbar: false,
-      text: 'Copied!',
+      copied: 'Copied!',
       timeout: 3000,
+      */
     };
   },
   methods: {
     witeToClipboard() {
       const copyText = this.$refs.copied.innerText;
       navigator.clipboard.writeText(copyText);
-      this.snackbar = true;
+      //this.snackbar = true;
+      const range = document.createRange();
+      range.selectNodeContents(this.$refs.copied);
+      window.getSelection().removeAllRanges();
+      window.getSelection().addRange(range);
+      this.btnIcon = 'mdi-check';
+      setTimeout(
+        function () {
+          this.btnIcon = 'mdi-content-copy';
+        }.bind(this),
+        3000
+      );
     },
   },
 };
@@ -61,9 +295,15 @@ export default {
 
 <style lang="scss" scoped>
 .code {
-  background-color: #e0e0e0;
-  font-family: Consolas, Monaco, Andale Mono, Ubuntu Mono, monospace;
+  background-color: #eee;
   color: rgba(0, 0, 0, 0.87);
+  &__pre {
+    font-family: Consolas, Monaco, Andale Mono, Ubuntu Mono, monospace;
+    white-space: pre;
+    overflow-x: auto;
+    overflow-y: hidden;
+    tab-size: 2;
+  }
   &__tag {
     color: #905;
   }

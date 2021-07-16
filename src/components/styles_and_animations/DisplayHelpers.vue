@@ -5,36 +5,33 @@
       <code class="text-subtitle-1">.d-{breakpoint}-{value}</code>
       で使用する。breakpointを省略した場合はxsを指定したのと同意。
     </v-card-subtitle>
-    <v-card outlined class="mb-4">
-      <v-card-actions class="justify-center">
-        <span>Material Designブレークポイント</span>
-        <v-btn icon absolute right @click="show = !show">
-          <v-icon>{{ show ? 'mdi-chevron-up' : 'mdi-chevron-down' }}</v-icon>
-        </v-btn>
-      </v-card-actions>
-      <v-expand-transition>
-        <v-data-table
-          v-show="show"
-          :headers="headers"
-          :items="items"
-          disable-sort
-          hide-default-footer
-          class="elevation-1"
-        >
-          <template v-slot:[`item.name`]="{ item }">
-            <v-icon class="mr-2">
-              {{ item.icon }}
-            </v-icon>
-            <span>{{ item.name }}</span>
-          </template>
-          <template v-slot:footer>
-            <v-card-subtitle class="text-center">
-              *デスクトップにおけるブラウザスクロールバー(16px)
-            </v-card-subtitle>
-          </template></v-data-table
-        >
-      </v-expand-transition>
-    </v-card>
+    <v-expansion-panels class="mb-4" v-model="panel" focusable>
+      <v-expansion-panel>
+        <v-expansion-panel-header>
+          Material Designブレークポイント
+        </v-expansion-panel-header>
+        <v-expansion-panel-content class="mt-4">
+          <v-data-table
+            :headers="headers"
+            :items="items"
+            disable-sort
+            hide-default-footer
+          >
+            <template v-slot:[`item.name`]="{ item }">
+              <v-icon class="mr-2">
+                {{ item.icon }}
+              </v-icon>
+              <span>{{ item.name }}</span>
+            </template>
+            <template v-slot:footer>
+              <v-card-subtitle class="text-center">
+                *デスクトップにおけるブラウザスクロールバー(16px)
+              </v-card-subtitle>
+            </template>
+          </v-data-table>
+        </v-expansion-panel-content>
+      </v-expansion-panel>
+    </v-expansion-panels>
     <v-row no-gutter>
       <v-col cols="12" sm="8" lg="6">
         <v-card-text class="text--primary">
@@ -71,7 +68,7 @@ export default {
   name: 'DisplayHelpers',
   data() {
     return {
-      show: false,
+      panel: false,
       headers: [
         {
           text: 'デバイス',

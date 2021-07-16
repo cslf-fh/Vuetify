@@ -40,8 +40,7 @@
           :prominent="prominent"
           :shaped="shaped"
           :text="text"
-          >Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque
-          sed turpis id est lacinia sagittis vitae id quam.
+          >I'm an Alert Usage Example
           <template v-if="prepend" v-slot:prepend>
             <v-icon left>mdi-arrow-left-bold</v-icon>
           </template>
@@ -65,7 +64,31 @@
           <v-checkbox v-model="append" label="append slot"></v-checkbox>
           <v-checkbox v-model="close" label="close slot"></v-checkbox>
         </div>
-        <Code class="mx-3 mb-3" tag="v-alert" :attr="computedAttr"></Code>
+        <Code
+          class="mx-3 mb-3"
+          tag="v-alert"
+          :attr="computedAttr"
+          :nest="prepend"
+          :slots="true"
+          slotName="prepend"
+          tagNest="v-icon"
+          :textsNest="true"
+          textNest="mdi-arrow-left-bold"
+          :nest2="append"
+          :slots2="true"
+          slotName2="append"
+          tagNest2="v-icon"
+          :textsNest2="true"
+          textNest2="mdi-arrow-right-bold"
+          :nest3="close"
+          :slots3="true"
+          slotName3="close"
+          slotProps3="toggle"
+          tagNest3="v-btn"
+          :textsNest3="true"
+          textNest3="toggle"
+          :attrNest3="[{ name: '@click', value: 'toggle' }]"
+        ></Code>
       </v-col>
       <v-col cols="12" sm="4" lg="6">
         <v-slider
@@ -173,7 +196,7 @@ export default {
       dismissible: false,
       elevation: 0,
       icon: 0,
-      icons: ['', 'mdi-firework', 'mdi-material-design', 'mdi-vuetify'],
+      icons: ['', 'firework', 'material-design', 'vuetify'],
       outlined: false,
       rounded: false,
       prominent: false,
@@ -195,7 +218,9 @@ export default {
       return border;
     },
     computedIcon() {
-      let icon = this.icons[this.icon];
+      let icon = 'mdi';
+      const icons = this.icons[this.icon];
+      icons === '' ? (icon = '') : (icon += `-${icons}`);
       return icon;
     },
     computedAttr() {

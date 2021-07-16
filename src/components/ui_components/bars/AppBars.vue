@@ -63,7 +63,7 @@
           :shaped="shaped"
           :short="short"
           :shrink-on-scroll="shrinkOnScroll"
-          :src="src ? srcImg : 'https://'"
+          :src="computedSrcImg"
           :tile="tile"
         >
           <template v-slot:img="{ props }">
@@ -96,7 +96,26 @@
           </v-container>
         </v-sheet>
         <div class="py-3"></div>
-        <Code class="mx-3 mb-3" tag="v-app-bar" :attr="computedAttr"></Code>
+        <Code
+          class="mx-3 mb-3"
+          tag="v-app-bar"
+          :attr="computedAttr"
+          :nest="src"
+          :slots="true"
+          slotName="img"
+          slotProps="props"
+          tagNest="v-img"
+          :attrNest="[
+            { name: 'v-bind', value: 'props' },
+            {
+              name: 'gradient',
+              value: 'to top right, rgba(19,84,122,.5), rgba(128,208,199,.8)',
+            },
+          ]"
+          :nest2="true"
+          tagNest2="v-sheet"
+          :attrNest2="[{ name: 'id', value: '#scrolling-techniques' }]"
+        ></Code>
       </v-col>
       <v-col cols="12" sm="4" lg="6">
         <Grid switch="4">
@@ -298,6 +317,11 @@ export default {
       let color = this.colors[this.color];
       return color;
     },
+    computedSrcImg() {
+      let img = this.srcImg;
+      this.src === true ? null : (img = '');
+      return img;
+    },
     computedAttr() {
       return this.attrArray();
     },
@@ -317,6 +341,7 @@ export default {
       this.checkBoolean(attr, this.hideOnScroll, 'hide-on-scroll');
       this.checkBoolean(attr, this.invertedScroll, 'inverted-scroll');
       this.checkBoolean(attr, this.shrinkOnScroll, 'shrink-on-scroll');
+      this.checkValue(attr, this.computedSrcImg, 'src', '');
       this.checkValue(attr, this.scrollThreshold, 'scroll-threshold', 0);
       this.checkBoolean(attr, this.extended, 'extended');
       this.checkBoolean(attr, this.floating, 'floating');
@@ -331,6 +356,7 @@ export default {
       this.checkBoolean(attr, this.tile, 'tile');
       this.checkValue(attr, this.computedColor, 'color', '');
       this.checkValue(attr, this.elevation, 'elevation', 4);
+      this.checkValue(attr, '#scrolling-techniques', 'scroll-target', '');
       return attr;
     },
   },

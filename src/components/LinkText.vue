@@ -35,8 +35,10 @@ export default {
   },
   created() {
     this.$props.link === 'to'
-      ? (this.to = this.$props.url)
-      : ((this.href = this.$props.url), (this.target = '_blank'));
+      ? ((this.to = this.$props.url), (this.href = ''))
+      : ((this.to = ''),
+        (this.href = this.$props.url),
+        (this.target = '_blank'));
   },
 };
 </script>
