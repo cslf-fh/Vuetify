@@ -45,6 +45,7 @@
             :scrollable="scrollable"
             :dark="dark"
             :light="light"
+            :transition="computedTransition"
             :width="computedWidth"
           >
             <template v-slot:activator="{ on, attrs }">
@@ -197,6 +198,12 @@
               thumb-label
             ></v-slider>
             <v-slider
+              label="transition"
+              v-model="transition"
+              :max="transitions.length - 1"
+              :tick-labels="transitions"
+            ></v-slider>
+            <v-slider
               label="width"
               v-model="width"
               :max="widthList.length - 1"
@@ -241,6 +248,8 @@ export default {
       light: false,
       width: 0,
       widthList: ['', '100px', '200px', '300px', '50%', '75%', '100%'],
+      transition: 0,
+      transitions: ['bottom-sheet', 'fade', 'scale'],
     };
   },
   computed: {
@@ -252,6 +261,14 @@ export default {
     computedWidth() {
       let width = this.widthList[this.width];
       return width;
+    },
+    computedTransition() {
+      let transition = 'transition';
+      let transitions = this.transitions[this.transition];
+      transitions === ''
+        ? (transition = '')
+        : (transitions += `-${transition}`);
+      return transitions;
     },
     computedAttr() {
       return this.attrArray();
@@ -281,6 +298,12 @@ export default {
         '#212121'
       );
       this.checkValue(attr, this.overlayOpacity, 'overlay-opacity', 0.46);
+      this.checkValue(
+        attr,
+        this.computedTransition,
+        'transition',
+        'bottom-sheet-transition'
+      );
       this.checkValue(attr, this.computedWidth, 'width', '');
       return attr;
     },
