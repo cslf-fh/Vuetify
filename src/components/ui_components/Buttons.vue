@@ -16,7 +16,7 @@
       <LinkText
         link="href"
         url="https://vuetifyjs.com/ja/components/buttons/#loading"
-        text="公式のリファレンス"
+        text="公式のドキュメント"
         icon="mdi-open-in-new"
       ></LinkText>
       を参照。

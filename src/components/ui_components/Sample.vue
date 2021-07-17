@@ -6,9 +6,10 @@
     </v-card-subtitle>
     <v-row no-gutters>
       <v-col cols="12" sm="8" lg="6">
-        <div></div>
-        <div class="py-3"></div>
-        <Code class="mx-3 mb-3" tag="" :attr="computedAttr"></Code>
+        <v-banner class="banner-sticky" app shaped>
+          <div class="py-3"></div>
+          <Code tag="" :attr="computedAttr"></Code>
+        </v-banner>
       </v-col>
       <v-col cols="12" sm="4" lg="6">
         <Grid switch="">

@@ -11,34 +11,42 @@
     </v-card-subtitle>
     <v-row no-gutters>
       <v-col cols="12" sm="8" lg="6">
-        <div class="d-flex justify-space-around">
-          <v-avatar
-            class="white--text"
-            :color="computedColor"
-            :size="size"
-            :rounded="rounded"
-            :tile="tile"
-            ><v-icon dark> mdi-account-circle </v-icon>
-          </v-avatar>
-          <v-avatar
-            class="white--text"
-            :color="computedColor"
-            :size="size"
-            :rounded="rounded"
-            :tile="tile"
-            ><img src="https://cdn.vuetifyjs.com/images/john.jpg" alt="John" />
-          </v-avatar>
-          <v-avatar
-            class="white--text"
-            :color="computedColor"
-            :size="size"
-            :rounded="rounded"
-            :tile="tile"
-            ><span>VJ</span>
-          </v-avatar>
-        </div>
-        <div class="py-3"></div>
-        <Code class="mx-3 mb-3" tag="v-avatar" :attr="computedAttr"></Code>
+        <v-banner class="banner-sticky" app shaped>
+          <div class="d-flex justify-space-around">
+            <v-avatar
+              class="white--text"
+              :color="computedColor"
+              :size="size"
+              :rounded="rounded"
+              :tile="tile"
+              :width="computedWidth"
+              ><v-icon dark> mdi-account-circle </v-icon>
+            </v-avatar>
+            <v-avatar
+              class="white--text"
+              :color="computedColor"
+              :size="size"
+              :rounded="rounded"
+              :tile="tile"
+              :width="computedWidth"
+              ><img
+                src="https://cdn.vuetifyjs.com/images/john.jpg"
+                alt="John"
+              />
+            </v-avatar>
+            <v-avatar
+              class="white--text"
+              :color="computedColor"
+              :size="size"
+              :rounded="rounded"
+              :tile="tile"
+              :width="computedWidth"
+              ><span>VJ</span>
+            </v-avatar>
+          </div>
+          <div class="py-3"></div>
+          <Code tag="v-avatar" :attr="computedAttr"></Code>
+        </v-banner>
       </v-col>
       <v-col cols="12" sm="4" lg="6">
         <v-slider
@@ -62,6 +70,12 @@
               :max="colors.length - 1"
               :tick-labels="colors"
             ></v-slider>
+            <v-slider
+              label="width"
+              v-model="width"
+              :max="widthList.length - 1"
+              :tick-labels="widthList"
+            ></v-slider>
           </template>
         </Grid>
       </v-col>
@@ -80,12 +94,18 @@ export default {
       tile: false,
       color: 0,
       colors: ['primary', 'accent', 'warning', 'teal', 'gray'],
+      width: 0,
+      widthList: ['', '100px', '200px', '300px', '50%', '75%', '100%'],
     };
   },
   computed: {
     computedColor() {
       let color = this.colors[this.color];
       return color;
+    },
+    computedWidth() {
+      let width = this.widthList[this.width];
+      return width;
     },
     computedAttr() {
       return this.attrArray();
@@ -99,6 +119,7 @@ export default {
       this.checkBoolean(attr, this.rounded, 'rounded');
       this.checkBoolean(attr, this.tile, 'tile');
       this.checkValue(attr, this.computedColor, 'color', '');
+      this.checkValue(attr, this.computedWidth, 'width', '');
       return attr;
     },
   },

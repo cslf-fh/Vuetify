@@ -1,5 +1,5 @@
 <template>
-  <v-card class="text-left px-4 py-3 code" flat tile outlined>
+  <v-card class="text-left mb-3 px-4 py-3 code" flat tile outlined>
     <v-hover>
       <template v-slot:default="{ hover }">
         <v-btn
@@ -94,7 +94,7 @@
          --><br /><!--
        --></span><!--
        --><span v-if="attrNest">&#9;&gt;</span><!--
-       --><span v-if="textsNest"><br />&#9;&#9;&#9;{{ textNest }}<br />&#9;&#9;</span><!--
+       --><span v-if="textsNest"><br />&#9;&#9;{{ textNest }}<br />&#9;</span><!--
        -->&lt;/<!--
        --><span class="code__tag">{{ tagNest }}</span><!--
        -->&gt;<!--
@@ -153,7 +153,7 @@
          --><br /><!--
        --></span><!--
        --><span v-if="attrNest2">&#9;&gt;</span><!--
-       --><span v-if="textsNest2"><br />&#9;&#9;&#9;{{ textNest2 }}<br />&#9;&#9;</span><!--
+       --><span v-if="textsNest2"><br />&#9;&#9;{{ textNest2 }}<br />&#9;</span><!--
        -->&lt;/<!--
        --><span class="code__tag">{{ tagNest2 }}</span><!--
        -->&gt;<!--
@@ -212,7 +212,7 @@
          --><br /><!--
        --></span><!--
        --><span v-if="attrNest3">&#9;&gt;</span><!--
-       --><span v-if="textsNest3"><br />&#9;&#9;&#9;{{ textNest3 }}<br />&#9;&#9;</span><!--
+       --><span v-if="textsNest3"><br />&#9;&#9;{{ textNest3 }}<br />&#9;</span><!--
        -->&lt;/<!--
        --><span class="code__tag">{{ tagNest3 }}</span><!--
        -->&gt;<!--
@@ -220,7 +220,7 @@
      --></span><!--
    --></span><!--
    --><span><!--
-     --><span v-if="texts"><br />{{ text }}<br /></span><!--
+     --><span v-if="texts"><br />&#9;{{ text }}<br /></span><!--
      -->&lt;/<!--
      --><span class="code__tag">{{ tag }}</span><!--
      -->&gt;<!--

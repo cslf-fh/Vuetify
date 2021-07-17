@@ -1,15 +1,18 @@
 <template>
   <v-container>
-    <p class="text-h4">UI Components</p>
-    <Alerts id="alerts" class="mb-4"></Alerts>
-    <AspectRatio id="aspect-ratio" class="mb-4"></AspectRatio>
-    <Avatars id="avatars" class="mb-4"></Avatars>
-    <Badges id="badges" class="mb-4"></Badges>
-    <Banners id="banners" class="mb-4"></Banners>
-    <Bars id="bars" class="mb-4"></Bars>
-    <BottomNavigation id="bottom-navigation" class="mb-4"></BottomNavigation>
-    <BottomSheets id="bottom-sheets" class="mb-4"></BottomSheets>
-    <Breadcrumbs id="breadcrumbs" class="mb-4"></Breadcrumbs>
+    <v-card color="background" flat>
+      <v-card-title class="text-h3">UI Components</v-card-title>
+    </v-card>
+    <Alerts class="mb-4"></Alerts>
+    <AspectRatio class="mb-4"></AspectRatio>
+    <Avatars class="mb-4"></Avatars>
+    <Badges class="mb-4"></Badges>
+    <Banners class="mb-4"></Banners>
+    <Bars class="mb-4"></Bars>
+    <BottomNavigation class="mb-4"></BottomNavigation>
+    <BottomSheets class="mb-4"></BottomSheets>
+    <Breadcrumbs class="mb-4"></Breadcrumbs>
+    <Buttons class="mb-4"></Buttons>
   </v-container>
 </template>
 
@@ -23,6 +26,7 @@ import Bars from '@/components/ui_components/bars/Bars.vue';
 import BottomNavigation from '@/components/ui_components/BottomNavigation.vue';
 import BottomSheets from '@/components/ui_components/BottomSheets.vue';
 import Breadcrumbs from '@/components/ui_components/Breadcrumbs.vue';
+import Buttons from '@/components/ui_components/Buttons.vue';
 
 export default {
   name: 'UIComponents',
@@ -36,6 +40,18 @@ export default {
     BottomNavigation,
     BottomSheets,
     Breadcrumbs,
+    Buttons,
   },
 };
 </script>
+
+<style lang="scss">
+.banner-sticky {
+  .v-banner__wrapper {
+    padding: 0 !important;
+    .v-banner__content {
+      padding: 0 12px;
+    }
+  }
+}
+</style>

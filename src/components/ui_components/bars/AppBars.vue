@@ -3,7 +3,7 @@
     <v-card-title class="text-h5">App bars</v-card-title>
     <v-card-subtitle class="text--primary text-left text-subtitle-1 mt-0">
       <code class="text-subtitle-1">v-navigation-drawer</code>
-      と組み合わせることで、サイトナビゲーションを作れる。
+      コンポーネントと組み合わせることで、サイトナビゲーションを作れる。
       <br />
       <code class="text-subtitle-1">appとfixed</code
       >プロパティの違いはよく分かりませんでした。
@@ -36,88 +36,107 @@
     </v-card-subtitle>
     <v-row no-gutters>
       <v-col cols="12" sm="8" lg="6">
-        <v-app-bar
-          class="mx-3"
-          :absolute="absolute"
-          :app="app"
-          :bottom="bottom"
-          :collapse="collapse"
-          :collapse-on-scroll="collapseOnScroll"
-          :color="computedColor"
-          scroll-target="#scrolling-techniques"
-          :dense="dense"
-          :elevate-on-scroll="elevateOnScroll"
-          :elevation="elevation"
-          :extended="extended"
-          :extension-height="extensionHeight"
-          :fade-img-on-scroll="fadeImgOnScroll"
-          :fixed="fixed"
-          :flat="flat"
-          :floating="floating"
-          :hide-on-scroll="hideOnScroll"
-          :inverted-scroll="invertedScroll"
-          :outlined="outlined"
-          :prominent="prominent"
-          :rounded="rounded"
-          :scroll-threshold="scrollThreshold"
-          :shaped="shaped"
-          :short="short"
-          :shrink-on-scroll="shrinkOnScroll"
-          :src="computedSrcImg"
-          :tile="tile"
-        >
-          <template v-slot:img="{ props }">
-            <v-img
-              v-bind="props"
-              :gradient="
-                src
-                  ? 'to top right, rgba(19,84,122,.5), rgba(128,208,199,.8)'
-                  : null
-              "
-            ></v-img>
-          </template>
-          <v-app-bar-nav-icon></v-app-bar-nav-icon>
-          <v-app-bar-title>Page title</v-app-bar-title>
-          <v-spacer></v-spacer>
-          <v-btn icon>
-            <v-icon>mdi-heart</v-icon>
-          </v-btn>
-          <v-btn icon>
-            <v-icon>mdi-magnify</v-icon>
-          </v-btn>
-        </v-app-bar>
-        <v-sheet
-          id="scrolling-techniques"
-          class="overflow-y-auto mx-3"
-          max-height="600"
-        >
-          <v-container style="height: 1000px">
-            <v-checkbox v-model="src" label="img slot"></v-checkbox>
-          </v-container>
-        </v-sheet>
-        <div class="py-3"></div>
-        <Code
-          class="mx-3 mb-3"
-          tag="v-app-bar"
-          :attr="computedAttr"
-          :nest="src"
-          :slots="true"
-          slotName="img"
-          slotProps="props"
-          tagNest="v-img"
-          :attrNest="[
-            { name: 'v-bind', value: 'props' },
-            {
-              name: 'gradient',
-              value: 'to top right, rgba(19,84,122,.5), rgba(128,208,199,.8)',
-            },
-          ]"
-          :nest2="true"
-          tagNest2="v-sheet"
-          :attrNest2="[{ name: 'id', value: '#scrolling-techniques' }]"
-        ></Code>
+        <v-banner class="banner-sticky" app shaped>
+          <v-app-bar
+            :absolute="absolute"
+            :dark="dark"
+            :light="light"
+            :app="app"
+            :bottom="bottom"
+            :collapse="collapse"
+            :collapse-on-scroll="collapseOnScroll"
+            :color="computedColor"
+            scroll-target="#scrolling-techniques"
+            :dense="dense"
+            :elevate-on-scroll="elevateOnScroll"
+            :elevation="elevation"
+            :extended="extended"
+            :extension-height="extensionHeight"
+            :fade-img-on-scroll="fadeImgOnScroll"
+            :fixed="fixed"
+            :flat="flat"
+            :floating="floating"
+            :hide-on-scroll="hideOnScroll"
+            :inverted-scroll="invertedScroll"
+            :outlined="outlined"
+            :prominent="prominent"
+            :rounded="rounded"
+            :scroll-threshold="scrollThreshold"
+            :shaped="shaped"
+            :short="short"
+            :shrink-on-scroll="shrinkOnScroll"
+            :src="computedSrcImg"
+            :tile="tile"
+            :width="computedWidth"
+          >
+            <template v-slot:img="{ props }">
+              <v-img
+                v-bind="props"
+                :gradient="
+                  src
+                    ? 'to top right, rgba(19,84,122,.5), rgba(128,208,199,.8)'
+                    : null
+                "
+              ></v-img>
+            </template>
+            <v-app-bar-nav-icon></v-app-bar-nav-icon>
+            <v-app-bar-title>Page title</v-app-bar-title>
+            <v-spacer></v-spacer>
+            <v-btn icon>
+              <v-icon>mdi-heart</v-icon>
+            </v-btn>
+            <v-btn icon>
+              <v-icon>mdi-magnify</v-icon>
+            </v-btn>
+          </v-app-bar>
+          <v-sheet
+            id="scrolling-techniques"
+            class="overflow-y-auto"
+            max-height="300"
+          >
+            <v-container class="d-flex justify-center" style="height: 1000px">
+              <v-checkbox v-model="src" label="img slot"></v-checkbox>
+            </v-container>
+          </v-sheet>
+          <div class="py-3"></div>
+          <Code
+            tag="v-app-bar"
+            :attr="computedAttr"
+            :nest="src"
+            :slots="true"
+            slotName="img"
+            slotProps="props"
+            tagNest="v-img"
+            :attrNest="[
+              { name: 'v-bind', value: 'props' },
+              {
+                name: 'gradient',
+                value: 'to top right, rgba(19,84,122,.5), rgba(128,208,199,.8)',
+              },
+            ]"
+            :nest2="true"
+            tagNest2="v-sheet"
+            :attrNest2="[{ name: 'id', value: '#scrolling-techniques' }]"
+          ></Code>
+        </v-banner>
       </v-col>
       <v-col cols="12" sm="4" lg="6">
+        <Grid switch="2">
+          <template v-slot:switch1>
+            <v-switch v-model="dark" label="dark" class="ma-0"></v-switch>
+          </template>
+          <template v-slot:switch2>
+            <v-switch v-model="light" label="light" class="ma-0"></v-switch>
+          </template>
+          <template v-slot:slider>
+            <v-slider
+              label="color"
+              v-model="color"
+              :max="colors.length - 1"
+              :tick-labels="colors"
+            ></v-slider>
+          </template>
+        </Grid>
         <Grid switch="4">
           <template v-slot:switch1>
             <v-switch v-model="app" label="app" class="ma-0"></v-switch>
@@ -255,21 +274,21 @@
           <template v-slot:switch6>
             <v-switch v-model="tile" label="tile" class="ma-0"></v-switch>
           </template>
-          <template v-slot:slider
-            ><v-slider
-              label="color"
-              v-model="color"
-              :max="colors.length - 1"
-              :tick-labels="colors"
-            ></v-slider
-            ><v-slider
+          <template v-slot:slider>
+            <v-slider
               label="elevation"
               v-model="elevation"
               max="24"
               min="0"
               thumb-label
-            ></v-slider
-          ></template>
+            ></v-slider>
+            <v-slider
+              label="width"
+              v-model="width"
+              :max="widthList.length - 1"
+              :tick-labels="widthList"
+            ></v-slider>
+          </template>
         </Grid>
       </v-col>
     </v-row>
@@ -310,6 +329,10 @@ export default {
       src: false,
       srcImg: 'https://picsum.photos/1920/1080?random',
       tile: false,
+      dark: false,
+      light: false,
+      width: 0,
+      widthList: ['', '100px', '200px', '300px', '50%', '75%', '100%'],
     };
   },
   computed: {
@@ -322,6 +345,10 @@ export default {
       this.src === true ? null : (img = '');
       return img;
     },
+    computedWidth() {
+      let width = this.widthList[this.width];
+      return width;
+    },
     computedAttr() {
       return this.attrArray();
     },
@@ -330,6 +357,9 @@ export default {
     attrArray() {
       this.attr = [];
       let attr = this.attr;
+      this.checkBoolean(attr, this.dark, 'dark');
+      this.checkBoolean(attr, this.light, 'light');
+      this.checkValue(attr, this.computedColor, 'color', '');
       this.checkBoolean(attr, this.app, 'app');
       this.checkBoolean(attr, this.fixed, 'fixed');
       this.checkBoolean(attr, this.absolute, 'absolute');
@@ -354,8 +384,8 @@ export default {
       this.checkBoolean(attr, this.rounded, 'rounded');
       this.checkBoolean(attr, this.shaped, 'shaped');
       this.checkBoolean(attr, this.tile, 'tile');
-      this.checkValue(attr, this.computedColor, 'color', '');
       this.checkValue(attr, this.elevation, 'elevation', 4);
+      this.checkValue(attr, this.computedWidth, 'width', '');
       this.checkValue(attr, '#scrolling-techniques', 'scroll-target', '');
       return attr;
     },

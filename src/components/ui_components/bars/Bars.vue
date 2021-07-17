@@ -1,13 +1,13 @@
 <template>
-  <v-card flat class="background text-center">
+  <v-card id="bars" class="background text-center" flat>
     <v-card-title class="text-h4">Bars</v-card-title>
     <v-card-subtitle class="text--primary text-left text-subtitle-1 mt-0">
       ヘッダーを表示するのに使用する。
       <br />
       <code class="text-subtitle-1">v-toolbar</code>
-      については
+      コンポーネントについては
       <code class="text-subtitle-1">v-abb-bar</code>
-      でできることと大体変わらないと思うので割愛。
+      コンポーネントでできることと大体変わらないと思うので割愛。
     </v-card-subtitle>
     <AppBars id="app-bars" class="mb-4"></AppBars>
     <SystemBars id="system-bars" class="mb-4"></SystemBars>

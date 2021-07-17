@@ -1,5 +1,5 @@
 <template>
-  <v-card id="" flat class="background text-center">
+  <v-card id="bottom-sheets" flat class="background text-center">
     <v-card-title class="text-h4">Bottom sheets</v-card-title>
     <v-card-subtitle class="text--primary text-left text-subtitle-1 mt-0">
       画面の下からスライドして表示されるダイアログを作るときに使用する。
@@ -27,102 +27,87 @@
     </v-card-subtitle>
     <v-row no-gutters>
       <v-col cols="12" sm="8" lg="6">
-        <v-bottom-sheet
-          v-model="sheet"
-          :close-delay="closeDelay"
-          :disabled="disabled"
-          :eager="eager"
-          :fullscreen="fullscreen"
-          :hide-overlay="hideOverlay"
-          :inset="inset"
-          :no-click-animation="noClickAnimation"
-          :open-delay="openDelay"
-          :open-on-hover="openOnHover"
-          :overlay-color="computedOverlayColor"
-          :overlay-opacity="overlayOpacity"
-          :persistent="persistent"
-          :scrollable="scrollable"
-        >
-          <template v-slot:activator="{ on, attrs }">
-            <v-btn
-              class="my-4"
-              color="deep-purple"
-              dark
-              v-bind="attrs"
-              v-on="on"
-            >
-              Open Playground
-            </v-btn>
-          </template>
-          <v-card v-if="!scrollable">
-            <v-card-actions>
-              <v-btn color="blue darken-1" text @click="sheet = false">
-                Close
+        <v-banner class="banner-sticky" app shaped>
+          <v-bottom-sheet
+            v-model="sheet"
+            :close-delay="closeDelay"
+            :disabled="disabled"
+            :eager="eager"
+            :fullscreen="fullscreen"
+            :hide-overlay="hideOverlay"
+            :inset="inset"
+            :no-click-animation="noClickAnimation"
+            :open-delay="openDelay"
+            :open-on-hover="openOnHover"
+            :overlay-color="computedOverlayColor"
+            :overlay-opacity="overlayOpacity"
+            :persistent="persistent"
+            :scrollable="scrollable"
+            :dark="dark"
+            :light="light"
+            :width="computedWidth"
+          >
+            <template v-slot:activator="{ on, attrs }">
+              <v-btn color="deep-purple" dark v-bind="attrs" v-on="on">
+                Open Playground
               </v-btn>
-            </v-card-actions>
-            <v-card-title>This is a bottom sheet</v-card-title>
-            <v-divider></v-divider>
-            <v-card-text style="height: 150px">
-              <v-list v-for="i in 3" :key="i">
-                <v-list-item
-                  v-for="tile in tiles"
-                  :key="tile.title"
-                  @click="sheet = false"
-                >
-                  <v-list-item-avatar>
-                    <v-avatar size="32px" tile>
-                      <img
-                        :src="`https://cdn.vuetifyjs.com/images/bottom-sheets/${tile.img}`"
-                        :alt="tile.title"
-                      />
-                    </v-avatar>
-                  </v-list-item-avatar>
-                  <v-list-item-title>{{ tile.title }}</v-list-item-title>
-                </v-list-item>
-              </v-list>
-            </v-card-text>
-            <v-divider></v-divider>
-            <v-card-title>This is a bottom sheet</v-card-title>
-          </v-card>
-          <v-card v-else>
-            <v-card-actions>
-              <v-btn color="blue darken-1" text @click="sheet = false">
-                Close
-              </v-btn>
-            </v-card-actions>
-            <v-card-title>This is a bottom sheet</v-card-title>
-            <v-divider></v-divider>
-            <v-card-text style="height: 150px">
-              <v-list v-for="i in 3" :key="i">
-                <v-list-item
-                  v-for="tile in tiles"
-                  :key="tile.title"
-                  @click="sheet = false"
-                >
-                  <v-list-item-avatar>
-                    <v-avatar size="32px" tile>
-                      <img
-                        :src="`https://cdn.vuetifyjs.com/images/bottom-sheets/${tile.img}`"
-                        :alt="tile.title"
-                      />
-                    </v-avatar>
-                  </v-list-item-avatar>
-                  <v-list-item-title>{{ tile.title }}</v-list-item-title>
-                </v-list-item>
-              </v-list>
-            </v-card-text>
-            <v-divider></v-divider>
-            <v-card-title>This is a bottom sheet</v-card-title>
-          </v-card>
-        </v-bottom-sheet>
-        <div class="py-3"></div>
-        <Code
-          class="mx-3 mb-3"
-          tag="v-bottom-sheet"
-          :attr="computedAttr"
-        ></Code>
+            </template>
+            <v-card>
+              <v-card-actions>
+                <v-btn color="blue darken-1" text @click="sheet = false">
+                  Close
+                </v-btn>
+              </v-card-actions>
+              <v-card-title>This is a bottom sheet</v-card-title>
+              <v-divider></v-divider>
+              <v-card-text style="height: 150px">
+                <v-list v-for="i in 3" :key="i">
+                  <v-list-item
+                    v-for="tile in tiles"
+                    :key="tile.title"
+                    @click="sheet = false"
+                  >
+                    <v-list-item-avatar>
+                      <v-avatar size="32px" tile>
+                        <img
+                          :src="`https://cdn.vuetifyjs.com/images/bottom-sheets/${tile.img}`"
+                          :alt="tile.title"
+                        />
+                      </v-avatar>
+                    </v-list-item-avatar>
+                    <v-list-item-title>{{ tile.title }}</v-list-item-title>
+                  </v-list-item>
+                </v-list>
+              </v-card-text>
+              <v-divider></v-divider>
+              <v-card-title>This is a bottom sheet</v-card-title>
+            </v-card>
+          </v-bottom-sheet>
+          <div class="py-3"></div>
+          <Code
+            tag="v-bottom-sheet"
+            :attr="computedAttr"
+            :nest="true"
+            :slots="true"
+            slotName="activator"
+            slotProps="on, attrs"
+            tagNest="v-btn"
+            :attrNest="[
+              { name: 'v-bind', value: 'attrs' },
+              { name: 'v-on', value: 'on' },
+            ]"
+          ></Code>
+        </v-banner>
       </v-col>
       <v-col cols="12" sm="4" lg="6">
+        <Grid switch="2">
+          <template v-slot:switch1>
+            <v-switch v-model="dark" label="dark" class="ma-0"></v-switch>
+          </template>
+          <template v-slot:switch2>
+            <v-switch v-model="light" label="light" class="ma-0"></v-switch>
+          </template>
+        </Grid>
         <Grid switch="9">
           <template v-slot:switch1>
             <v-switch
@@ -211,6 +196,12 @@
               step="0.01"
               thumb-label
             ></v-slider>
+            <v-slider
+              label="width"
+              v-model="width"
+              :max="widthList.length - 1"
+              :tick-labels="widthList"
+            ></v-slider>
           </template>
         </Grid>
       </v-col>
@@ -246,6 +237,10 @@ export default {
         { img: 'messenger.png', title: 'Messenger' },
         { img: 'google.png', title: 'Google+' },
       ],
+      dark: false,
+      light: false,
+      width: 0,
+      widthList: ['', '100px', '200px', '300px', '50%', '75%', '100%'],
     };
   },
   computed: {
@@ -253,6 +248,10 @@ export default {
       let overlayColor = this.overlayColors[this.overlayColor];
       overlayColor === '' ? (overlayColor = '#212121') : null;
       return overlayColor;
+    },
+    computedWidth() {
+      let width = this.widthList[this.width];
+      return width;
     },
     computedAttr() {
       return this.attrArray();
@@ -262,6 +261,8 @@ export default {
     attrArray() {
       this.attr = [];
       let attr = this.attr;
+      this.checkBoolean(attr, this.dark, 'dark');
+      this.checkBoolean(attr, this.light, 'light');
       this.checkBoolean(attr, this.disabled, 'disabled');
       this.checkBoolean(attr, this.eager, 'eager');
       this.checkBoolean(attr, this.fullscreen, 'fullscreen');
@@ -280,6 +281,7 @@ export default {
         '#212121'
       );
       this.checkValue(attr, this.overlayOpacity, 'overlay-opacity', 0.46);
+      this.checkValue(attr, this.computedWidth, 'width', '');
       return attr;
     },
   },

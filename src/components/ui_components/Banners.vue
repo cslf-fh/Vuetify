@@ -26,8 +26,10 @@
         <v-banner
           class="mx-3 text-left"
           v-model="banner"
-          :app="app"
+          :dark="dark"
+          :light="light"
           :color="computedColor"
+          :app="app"
           :elevation="elevation"
           :icon="computedIcon"
           :icon-color="computedIconColor"
@@ -37,6 +39,7 @@
           :single-line="singleLine"
           :sticky="sticky"
           :tile="tile"
+          :width="computedWidth"
           >Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque
           sed turpis id est lacinia sagittis vitae id quam.
           <template v-if="actions" v-slot:actions="{ dismiss }">
@@ -69,6 +72,22 @@
         ></Code>
       </v-col>
       <v-col cols="12" sm="4" lg="6">
+        <Grid switch="2">
+          <template v-slot:switch1>
+            <v-switch v-model="dark" label="dark" class="ma-0"></v-switch>
+          </template>
+          <template v-slot:switch2>
+            <v-switch v-model="light" label="light" class="ma-0"></v-switch>
+          </template>
+          <template v-slot:slider>
+            <v-slider
+              label="color"
+              v-model="color"
+              :max="colors.length - 1"
+              :tick-labels="colors"
+            ></v-slider>
+          </template>
+        </Grid>
         <Grid switch="2">
           <template v-slot:switch1>
             <v-switch v-model="app" label="app" class="ma-0"></v-switch>
@@ -119,17 +138,17 @@
           </template>
           <template v-slot:slider>
             <v-slider
-              label="color"
-              v-model="color"
-              :max="colors.length - 1"
-              :tick-labels="colors"
-            ></v-slider>
-            <v-slider
               label="elevation"
               v-model="elevation"
               max="24"
               min="0"
               thumb-label
+            ></v-slider>
+            <v-slider
+              label="width"
+              v-model="width"
+              :max="widthList.length - 1"
+              :tick-labels="widthList"
             ></v-slider>
           </template>
         </Grid>
@@ -147,19 +166,23 @@ export default {
       actions: false,
       banner: true,
       app: false,
+      dark: false,
+      light: false,
       color: 0,
-      colors: ['', 'primary', 'success'],
+      colors: ['', 'primary', 'orange'],
       elevation: 0,
       icon: 0,
       icons: ['', 'account', 'vuetify'],
       iconColor: 0,
-      iconColors: ['', 'white', 'orange'],
+      iconColors: ['', 'success', 'red'],
       outlined: false,
       rounded: false,
       shaped: false,
       singleLine: false,
       sticky: false,
       tile: false,
+      width: 0,
+      widthList: ['', '100px', '200px', '300px', '50%', '75%', '100%'],
     };
   },
   computed: {
@@ -177,6 +200,10 @@ export default {
       let iconColor = this.iconColors[this.iconColor];
       return iconColor;
     },
+    computedWidth() {
+      let width = this.widthList[this.width];
+      return width;
+    },
     computedAttr() {
       return this.attrArray();
     },
@@ -185,6 +212,9 @@ export default {
     attrArray() {
       this.attr = [];
       let attr = this.attr;
+      this.checkBoolean(attr, this.dark, 'dark');
+      this.checkBoolean(attr, this.light, 'light');
+      this.checkValue(attr, this.computedColor, 'color', '');
       this.checkBoolean(attr, this.app, 'app');
       this.checkBoolean(attr, this.sticky, 'sticky');
       this.checkBoolean(attr, this.outlined, 'outlined');
@@ -194,8 +224,8 @@ export default {
       this.checkBoolean(attr, this.rounded, 'rounded');
       this.checkBoolean(attr, this.shaped, 'shaped');
       this.checkBoolean(attr, this.tile, 'tile');
-      this.checkValue(attr, this.computedColor, 'color', '');
       this.checkValue(attr, this.elevation, 'elevation', 0);
+      this.checkValue(attr, this.computedWidth, 'width', '');
       return attr;
     },
   },

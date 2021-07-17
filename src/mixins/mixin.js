@@ -13,5 +13,10 @@ export default {
         ? null
         : attr.push({ name: String(prefix + name), value: String(value) });
     },
+    checkValueAsText(attr, value, text, name, check) {
+      value === check
+        ? null
+        : attr.push({ name: String(name), value: String(text) });
+    },
   },
 };

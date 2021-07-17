@@ -1,5 +1,5 @@
 <template>
-  <v-card id="" flat class="background text-center">
+  <v-card id="breadcrumbs" flat class="background text-center">
     <v-card-title class="text-h4">Breadcrumbs</v-card-title>
     <v-card-subtitle class="text--primary text-left text-subtitle-1 mt-0">
       パンくずリストを作成するのに使用する。
@@ -34,53 +34,69 @@
     </v-expansion-panels>
     <v-row no-gutters>
       <v-col cols="12" sm="8" lg="6">
-        <v-breadcrumbs :items="items" :divider="computedDivider" :large="large">
-          <template v-if="dividerSlot" v-slot:divider>
-            <v-icon>{{ computedDividerForSlot }}</v-icon>
-          </template>
-          <template v-if="itemSlot" v-slot:item="{ item }">
-            <v-breadcrumbs-item
-              :to="linkForSlot === 0 ? item.to : null"
-              :href="linkForSlot === 1 ? item.href : null"
-              :disabled="disabled"
-              :ripple="ripple"
-              :target="computedTargetForSlot"
-            >
-              {{ item.text.toUpperCase() }}
-            </v-breadcrumbs-item>
-          </template>
-        </v-breadcrumbs>
-        <div class="d-flex flex-wrap justify-space-around mx-3">
-          <v-checkbox v-model="dividerSlot" label="divider slot"></v-checkbox>
-          <v-checkbox v-model="itemSlot" label="item slot"></v-checkbox>
-        </div>
-        <v-card class="background" flat tile>
-          <div id="breadcrumbs-link1">Link 1</div>
-          <div id="breadcrumbs-link2">Link 2</div>
-          <div id="breadcrumbs-link3">Link 3</div>
-        </v-card>
-        <div class="py-3"></div>
-        <Code
-          class="mx-3 mb-3"
-          tag="v-breadcrumbs"
-          :attr="computedAttr"
-          :nest="dividerSlot"
-          :slots="true"
-          slotName="divider"
-          tagNest="v-icon"
-          :textsNest="true"
-          :textNest="computedDividerForSlot"
-          :nest2="itemSlot"
-          :slots2="true"
-          slotName2="item"
-          slotProps2="item"
-          tagNest2="v-breadcrumbs-item"
-          :textsNest2="true"
-          :textNest2="'{{ item.text.toUpperCase() }}'"
-          :attrNest2="computedAttrSlot2"
-        ></Code>
+        <v-banner class="banner-sticky" app shaped>
+          <v-breadcrumbs
+            :items="items"
+            :divider="computedDivider"
+            :large="large"
+            :dark="dark"
+            :light="light"
+          >
+            <template v-if="dividerSlot" v-slot:divider>
+              <v-icon>{{ computedDividerForSlot }}</v-icon>
+            </template>
+            <template v-if="itemSlot" v-slot:item="{ item }">
+              <v-breadcrumbs-item
+                :to="linkForSlot === 0 ? item.to : null"
+                :href="linkForSlot === 1 ? item.href : null"
+                :disabled="disabled"
+                :ripple="ripple"
+                :target="computedTargetForSlot"
+              >
+                {{ item.text.toUpperCase() }}
+              </v-breadcrumbs-item>
+            </template>
+          </v-breadcrumbs>
+          <div class="d-flex flex-wrap justify-space-around mx-3">
+            <v-checkbox v-model="dividerSlot" label="divider slot"></v-checkbox>
+            <v-checkbox v-model="itemSlot" label="item slot"></v-checkbox>
+          </div>
+          <v-card class="background" flat tile>
+            <div id="breadcrumbs-link1">Link 1</div>
+            <div id="breadcrumbs-link2">Link 2</div>
+            <div id="breadcrumbs-link3">Link 3</div>
+          </v-card>
+          <div class="py-3"></div>
+          <Code
+            class="mx-3 mb-3"
+            tag="v-breadcrumbs"
+            :attr="computedAttr"
+            :nest="dividerSlot"
+            :slots="true"
+            slotName="divider"
+            tagNest="v-icon"
+            :textsNest="true"
+            :textNest="computedDividerForSlot"
+            :nest2="itemSlot"
+            :slots2="true"
+            slotName2="item"
+            slotProps2="item"
+            tagNest2="v-breadcrumbs-item"
+            :textsNest2="true"
+            :textNest2="'{{ item.text.toUpperCase() }}'"
+            :attrNest2="computedAttrSlot2"
+          ></Code>
+        </v-banner>
       </v-col>
       <v-col cols="12" sm="4" lg="6">
+        <Grid switch="2">
+          <template v-slot:switch1>
+            <v-switch v-model="dark" label="dark" class="ma-0"></v-switch>
+          </template>
+          <template v-slot:switch2>
+            <v-switch v-model="light" label="light" class="ma-0"></v-switch>
+          </template>
+        </Grid>
         <Grid switch="1">
           <template v-slot:switch1>
             <v-switch v-model="large" label="large" class="ma-0"></v-switch>
@@ -187,6 +203,8 @@ export default {
           to: 'string | object',
         },
       ],
+      dark: false,
+      light: false,
     };
   },
   computed: {
@@ -221,6 +239,8 @@ export default {
       this.attr = [];
       let attr = this.attr;
       this.checkValue(attr, 'items', ':items', '');
+      this.checkBoolean(attr, this.dark, 'dark');
+      this.checkBoolean(attr, this.light, 'light');
       this.checkBoolean(attr, this.large, 'large');
       this.dividerSlot === true
         ? null

@@ -1,7 +1,7 @@
 <template>
   <span>
     <v-btn
-      class="px-0"
+      class="px-0 link-text"
       color="primary"
       height="24"
       text
@@ -42,3 +42,9 @@ export default {
   },
 };
 </script>
+
+<style lang="scss" scoped>
+.link-text {
+  margin-top: -2px;
+}
+</style>

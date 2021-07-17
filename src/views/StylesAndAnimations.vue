@@ -1,6 +1,8 @@
 <template>
   <v-container>
-    <p class="text-h4">Styles and Animations</p>
+    <v-card color="background" flat>
+      <v-card-title class="text-h3">Styles and Animations</v-card-title>
+    </v-card>
     <BorderRadius class="mb-4"></BorderRadius>
     <Color class="mb-4"></Color>
     <Content class="mb-4"></Content>

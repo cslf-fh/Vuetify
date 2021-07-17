@@ -6,16 +6,18 @@
     </v-card-subtitle>
     <v-row no-gutters>
       <v-col cols="12" sm="8" lg="6">
-        <v-card class="primary mx-3">
-          <v-responsive :aspect-ratio="x / y">
-            <v-card-text>
-              This card will always be {{ x }}:{{ y }} (unless you put more
-              stuff in it)
-            </v-card-text>
-          </v-responsive>
-        </v-card>
-        <div class="py-3"></div>
-        <Code class="mx-3 mb-3" tag="v-responseve" :attr="computedAttr"></Code>
+        <v-banner class="banner-sticky" app shaped>
+          <v-card class="primary">
+            <v-responsive :aspect-ratio="x / y">
+              <v-card-text>
+                This card will always be {{ x }}:{{ y }} (unless you put more
+                stuff in it)
+              </v-card-text>
+            </v-responsive>
+          </v-card>
+          <div class="py-3"></div>
+          <Code tag="v-responseve" :attr="computedAttr"></Code>
+        </v-banner>
       </v-col>
       <v-col cols="12" sm="4" lg="6">
         <v-slider label="x" v-model="x" max="20" min="1" thumb-label></v-slider>
