@@ -284,6 +284,10 @@ export default {
               name: 'Buttons',
               link: '/components/#buttons',
             },
+            {
+              name: 'Buttons: Floating Action Button',
+              link: '/components/#buttons-fab',
+            },
           ],
         },
       ],

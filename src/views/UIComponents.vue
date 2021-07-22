@@ -13,6 +13,7 @@
     <BottomSheets class="mb-4"></BottomSheets>
     <Breadcrumbs class="mb-4"></Breadcrumbs>
     <Buttons class="mb-4"></Buttons>
+    <ButtonsFab class="mb-4"></ButtonsFab>
   </v-container>
 </template>
 
@@ -27,6 +28,7 @@ import BottomNavigation from '@/components/ui_components/BottomNavigation.vue';
 import BottomSheets from '@/components/ui_components/BottomSheets.vue';
 import Breadcrumbs from '@/components/ui_components/Breadcrumbs.vue';
 import Buttons from '@/components/ui_components/Buttons.vue';
+import ButtonsFab from '@/components/ui_components/ButtonsFab.vue';
 
 export default {
   name: 'UIComponents',
@@ -41,6 +43,7 @@ export default {
     BottomSheets,
     Breadcrumbs,
     Buttons,
+    ButtonsFab,
   },
 };
 </script>
