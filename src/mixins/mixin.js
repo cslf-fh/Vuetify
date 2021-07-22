@@ -1,22 +1,22 @@
 export default {
   methods: {
-    checkBoolean(attr, boolean, name) {
-      boolean === true ? attr.push({ name: String(name) }) : null;
+    checkBoolean(array, boolean, name) {
+      boolean === true ? array.push({ name: String(name) }) : null;
     },
-    checkValue(attr, value, name, check) {
+    checkValue(array, value, name, check) {
       value === check
         ? null
-        : attr.push({ name: String(name), value: String(value) });
+        : array.push({ name: String(name), value: String(value) });
     },
-    checkValuePrefix(attr, value, prefix, name, check) {
+    checkValuePrefix(array, value, prefix, name, check) {
       value === check
         ? null
-        : attr.push({ name: String(prefix + name), value: String(value) });
+        : array.push({ name: String(prefix + name), value: String(value) });
     },
-    checkValueAsText(attr, value, text, name, check) {
+    checkValueAsText(array, value, text, name, check) {
       value === check
         ? null
-        : attr.push({ name: String(name), value: String(text) });
+        : array.push({ name: String(name), value: String(text) });
     },
   },
 };
