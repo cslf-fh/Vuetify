@@ -33,8 +33,10 @@
    --><span v-for="(array, index) in arrays" :key="index"><!--
      --><span v-for="(i, key) in array" :key="key"><!--
        -->&#9;&#9;{{ key }}: <!--
-       --><span class="code__attr--name">{{ i }}</span><!--
-       -->,<br /><!--
+       --><span v-if="i.indexOf('//') !== -1" class="code__attr--name">{{ i.slice(0, i.indexOf('//') -1) }}</span><!--
+       --><span v-else class="code__attr--name">{{ i }}</span><!--
+       -->,&#9;<!--
+       --><span v-if="i.indexOf('//') !== -1" class="code__attr--comment">{{ i.slice(i.indexOf('//'), i.length) }}</span><br /><!--
      --></span><!--
    --></span><!--
    -->&#9;}<br /><!--
@@ -98,8 +100,8 @@ export default {
     &--name {
       color: #690;
     }
-    &--value {
-      color: #07a;
+    &--comment {
+      color: #999;
     }
   }
 }

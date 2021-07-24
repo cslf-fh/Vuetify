@@ -288,6 +288,10 @@ export default {
               name: 'Buttons: Floating Action Button',
               link: '/components/#buttons-fab',
             },
+            {
+              name: 'Calendars',
+              link: '/components/#calendars',
+            },
           ],
         },
       ],

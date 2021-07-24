@@ -2,19 +2,40 @@
   <v-card class="text-left mb-3 px-4 py-3 code" flat tile outlined>
     <v-hover>
       <template v-slot:default="{ hover }">
-        <v-btn
-          class="mt-n2 mr-n2"
-          absolute
-          top
-          right
-          icon
-          rounded
-          @click="witeToClipboard()"
-        >
-          <v-icon :color="hover ? 'gray darken-1' : 'gray lighten-1'">{{
-            btnIcon
-          }}</v-icon>
-        </v-btn>
+        <v-fab-transition>
+          <v-btn
+            v-if="btnIcon"
+            class="mt-n2 mr-n2"
+            absolute
+            top
+            right
+            icon
+            rounded
+            :color="hover ? 'gray darken-1' : 'gray lighten-1'"
+            @click="witeToClipboard()"
+          >
+            <v-icon>mdi-content-copy</v-icon>
+          </v-btn>
+        </v-fab-transition>
+      </template>
+    </v-hover>
+    <v-hover>
+      <template v-slot:default="{ hover }">
+        <v-fab-transition>
+          <v-btn
+            v-if="!btnIcon"
+            class="mt-n2 mr-n2"
+            absolute
+            top
+            right
+            icon
+            rounded
+            :color="hover ? 'gray darken-1' : 'gray lighten-1'"
+            @click="witeToClipboard()"
+          >
+            <v-icon>mdi-check</v-icon>
+          </v-btn>
+        </v-fab-transition>
       </template>
     </v-hover>
     <!--
@@ -264,7 +285,7 @@ export default {
   },
   data() {
     return {
-      btnIcon: 'mdi-content-copy',
+      btnIcon: true,
       /*
       snackbar: false,
       copied: 'Copied!',
@@ -281,10 +302,10 @@ export default {
       range.selectNodeContents(this.$refs.copied);
       window.getSelection().removeAllRanges();
       window.getSelection().addRange(range);
-      this.btnIcon = 'mdi-check';
+      this.btnIcon = false;
       setTimeout(
         function () {
-          this.btnIcon = 'mdi-content-copy';
+          this.btnIcon = true;
         }.bind(this),
         3000
       );

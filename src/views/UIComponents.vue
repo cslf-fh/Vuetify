@@ -14,6 +14,7 @@
     <Breadcrumbs class="mb-4"></Breadcrumbs>
     <Buttons class="mb-4"></Buttons>
     <ButtonsFab class="mb-4"></ButtonsFab>
+    <Calendars class="mb-4"></Calendars>
   </v-container>
 </template>
 
@@ -29,6 +30,7 @@ import BottomSheets from '@/components/ui_components/BottomSheets.vue';
 import Breadcrumbs from '@/components/ui_components/Breadcrumbs.vue';
 import Buttons from '@/components/ui_components/Buttons.vue';
 import ButtonsFab from '@/components/ui_components/ButtonsFab.vue';
+import Calendars from '@/components/ui_components/Calendars.vue';
 
 export default {
   name: 'UIComponents',
@@ -44,6 +46,7 @@ export default {
     Breadcrumbs,
     Buttons,
     ButtonsFab,
+    Calendars,
   },
 };
 </script>
