@@ -296,6 +296,10 @@ export default {
               name: 'Cards',
               link: '/components/#cards',
             },
+            {
+              name: 'Carousels',
+              link: '/components/#carousels',
+            },
           ],
         },
       ],
