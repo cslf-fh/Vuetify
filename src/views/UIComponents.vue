@@ -15,6 +15,7 @@
     <Calendars class="mb-4"></Calendars>
     <Cards class="mb-4"></Cards>
     <Carousels class="mb-4"></Carousels>
+    <Chips class="mb-4"></Chips>
   </v-container>
 </template>
 
@@ -33,6 +34,7 @@ import ButtonsFab from '@/components/ui_components/ButtonsFab.vue';
 import Calendars from '@/components/ui_components/Calendars.vue';
 import Cards from '@/components/ui_components/Cards.vue';
 import Carousels from '@/components/ui_components/Carousels.vue';
+import Chips from '@/components/ui_components/Chips.vue';
 
 export default {
   name: 'UIComponents',
@@ -51,6 +53,7 @@ export default {
     Calendars,
     Cards,
     Carousels,
+    Chips,
   },
 };
 </script>

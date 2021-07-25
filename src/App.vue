@@ -300,6 +300,10 @@ export default {
               name: 'Carousels',
               link: '/components/#carousels',
             },
+            {
+              name: 'Chips',
+              link: '/components/#chips',
+            },
           ],
         },
       ],
