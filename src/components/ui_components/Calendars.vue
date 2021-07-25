@@ -374,7 +374,7 @@
 
 <script>
 export default {
-  name: '',
+  name: 'Calendars',
   data() {
     return {
       attr: [],

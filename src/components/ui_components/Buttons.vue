@@ -21,6 +21,9 @@
       ></LinkText>
       を参照。
     </v-card-subtitle>
+    <v-card class="background text-left px-4" flat tile>
+      <div id="buttons-link" class="pb-4">Link</div>
+    </v-card>
     <v-row no-gutters>
       <v-col cols="12" sm="8" lg="6">
         <v-banner class="banner-sticky" app shaped>
@@ -57,9 +60,9 @@
             :width="computedWidth"
             :x-large="xLarge"
             :x-small="xSmall"
-            :to="linkForSlot === 1 ? to : null"
-            :href="linkForSlot === 2 ? href : null"
-            :target="computedTargetForSlot"
+            :to="link === 1 ? to : null"
+            :href="link === 2 ? href : null"
+            :target="computedTarget"
             ><span v-if="!vIcon">v-btn</span>
             <v-icon v-if="vIcon">{{ computedVIcon }}</v-icon>
             <template v-if="loaderSlot" v-slot:loader>
@@ -69,9 +72,6 @@
           <div class="d-flex justify-center">
             <v-checkbox v-model="loaderSlot" label="loader slot"></v-checkbox>
           </div>
-          <v-card class="background" flat tile>
-            <div id="buttons-link">Link</div>
-          </v-card>
           <div class="py-3"></div>
           <Code
             class="mx-3 mb-3"
@@ -234,16 +234,16 @@
         ></v-slider>
         <v-slider
           label="how to link"
-          v-model="linkForSlot"
-          :max="linksForSlot.length - 1"
-          :tick-labels="linksForSlot"
+          v-model="link"
+          :max="links.length - 1"
+          :tick-labels="links"
         ></v-slider>
         <v-slider
           label="target"
-          v-model="targetForSlot"
-          :max="targetsForSlot.length - 1"
-          :tick-labels="targetsForSlot"
-          :disabled="linkForSlot === 0"
+          v-model="target"
+          :max="targets.length - 1"
+          :tick-labels="targets"
+          :disabled="link === 0"
         ></v-slider>
       </v-col>
     </v-row>
@@ -294,10 +294,10 @@ export default {
       vIcons: ['', 'minus', 'heart', 'pencil'],
       app: true,
       loaderSlot: false,
-      linkForSlot: 0,
-      linksForSlot: ['', 'to', 'href'],
-      targetForSlot: 0,
-      targetsForSlot: ['_blank', '_self', '_parent', '_top'],
+      link: 0,
+      links: ['', 'to', 'href'],
+      target: 0,
+      targets: ['_blank', '_self', '_parent', '_top'],
       to: './#buttons-link',
       href: './#/components/#buttons-link',
     };
@@ -321,13 +321,13 @@ export default {
       icons === '' ? (icon = '') : (icon += `-${icons}`);
       return icon;
     },
-    computedLinkForSlot() {
-      let link = this.linksForSlot[this.linkForSlot];
+    computedLink() {
+      let link = this.links[this.link];
       return link;
     },
-    computedTargetForSlot() {
-      let target = this.targetsForSlot[this.targetForSlot];
-      this.linkForSlot === 1 ? (target = '') : null;
+    computedTarget() {
+      let target = this.targets[this.target];
+      this.link === 1 ? (target = '') : null;
       return target;
     },
     computedAttr() {
@@ -368,11 +368,11 @@ export default {
       this.checkValue(attr, this.computedWidth, 'width', '');
       this.checkBoolean(attr, this.inputValue, 'input-value');
       this.checkValue(attr, this.computedType, 'type', 'button');
-      if (this.linkForSlot === 1) {
+      if (this.link === 1) {
         this.checkValue(attr, this.to, 'to', '');
-      } else if (this.linkForSlot === 2) {
+      } else if (this.link === 2) {
         this.checkValue(attr, this.href, 'href', '');
-        this.checkValue(attr, this.computedTargetForSlot, 'target', '');
+        this.checkValue(attr, this.computedTarget, 'target', '');
       }
       return attr;
     },

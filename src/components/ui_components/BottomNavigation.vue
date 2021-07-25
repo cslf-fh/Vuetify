@@ -75,9 +75,8 @@
           <Code
             tag="v-bottom-navigation"
             :attr="computedAttr"
-            :nest="true"
-            tagNest="v-sheet"
-            :attrNest="[{ name: 'id', value: 'target-navigation' }]"
+            tag2="v-sheet"
+            :attr2="[{ name: 'id', value: 'target-navigation' }]"
           ></Code>
         </v-banner>
       </v-col>

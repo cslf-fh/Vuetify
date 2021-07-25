@@ -32,6 +32,11 @@
         </v-expansion-panel-content>
       </v-expansion-panel>
     </v-expansion-panels>
+    <v-card class="background text-left px-4" flat tile>
+      <div id="breadcrumbs-link1" class="pb-4">Link 1</div>
+      <div id="breadcrumbs-link2" class="pb-4">Link 2</div>
+      <div id="breadcrumbs-link3" class="pb-4">Link 3</div>
+    </v-card>
     <v-row no-gutters>
       <v-col cols="12" sm="8" lg="6">
         <v-banner class="banner-sticky" app shaped>
@@ -61,11 +66,6 @@
             <v-checkbox v-model="dividerSlot" label="divider slot"></v-checkbox>
             <v-checkbox v-model="itemSlot" label="item slot"></v-checkbox>
           </div>
-          <v-card class="background" flat tile>
-            <div id="breadcrumbs-link1">Link 1</div>
-            <div id="breadcrumbs-link2">Link 2</div>
-            <div id="breadcrumbs-link3">Link 3</div>
-          </v-card>
           <div class="py-3"></div>
           <Code
             class="mx-3 mb-3"

@@ -114,9 +114,8 @@
                 value: 'to top right, rgba(19,84,122,.5), rgba(128,208,199,.8)',
               },
             ]"
-            :nest2="true"
-            tagNest2="v-sheet"
-            :attrNest2="[{ name: 'id', value: '#scrolling-techniques' }]"
+            tag2="v-sheet"
+            :attr2="[{ name: 'id', value: '#scrolling-techniques' }]"
           ></Code>
         </v-banner>
       </v-col>
