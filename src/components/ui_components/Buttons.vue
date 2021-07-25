@@ -77,7 +77,7 @@
             class="mx-3 mb-3"
             tag="v-btn"
             :attr="computedAttr"
-            :nest="vIcon"
+            :nest="vIcon !== 0"
             tagNest="v-icon"
             :textsNest="true"
             :textNest="computedVIcon"
@@ -277,7 +277,7 @@ export default {
       plain: false,
       retainFocusOnClick: false,
       right: false,
-      ripple: false,
+      ripple: true,
       rounded: false,
       shaped: false,
       small: false,
@@ -353,7 +353,7 @@ export default {
       this.checkBoolean(attr, this.loading, 'loading');
       this.checkBoolean(attr, this.outlined, 'outlined');
       this.checkBoolean(attr, this.retainFocusOnClick, 'retain-on-focus-click');
-      this.checkBoolean(attr, this.ripple, 'ripple');
+      this.checkValuePrefix(attr, this.ripple, ':', 'ripple', true);
       this.checkBoolean(attr, this.rounded, 'rounded');
       this.checkBoolean(attr, this.shaped, 'shaped');
       this.checkBoolean(attr, this.text, 'text');

@@ -243,6 +243,7 @@ export default {
     },
     computedType() {
       let type = this.types[this.type];
+      type === '' ? (type = undefined) : null;
       return type;
     },
     computedBorder() {
@@ -278,7 +279,7 @@ export default {
       this.checkBoolean(attr, this.dark, 'dark');
       this.checkBoolean(attr, this.light, 'light');
       this.checkValue(attr, this.computedColor, 'color', '');
-      this.checkValue(attr, this.computedType, 'type', '');
+      this.checkValue(attr, this.computedType, 'type', undefined);
       this.checkBoolean(attr, this.coloredBorder, 'colored-border');
       this.checkBoolean(attr, this.dense, 'dense');
       this.checkBoolean(attr, this.dismissible, 'dismissible');

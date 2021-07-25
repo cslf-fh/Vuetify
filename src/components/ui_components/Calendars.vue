@@ -639,8 +639,8 @@ export default {
     },
     //move day in type
     viewDay({ date }) {
-      this.focus = date;
-      this.type = 'day';
+      this.value = date;
+      this.type = 2;
     },
     //open window for events
     showEvent({ nativeEvent, event }) {
@@ -651,14 +651,12 @@ export default {
           requestAnimationFrame(() => (this.selectedOpen = true))
         );
       };
-
       if (this.selectedOpen) {
         this.selectedOpen = false;
         requestAnimationFrame(() => requestAnimationFrame(() => open()));
       } else {
         open();
       }
-
       nativeEvent.stopPropagation();
     },
   },
