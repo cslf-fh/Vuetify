@@ -1,8 +1,6 @@
 <template>
   <v-container>
-    <v-card color="background" flat>
-      <v-card-title class="text-h3">UI Components</v-card-title>
-    </v-card>
+    <h1 class="text-h3">UI Components</h1>
     <Alerts class="mb-4"></Alerts>
     <AspectRatio class="mb-4"></AspectRatio>
     <Avatars class="mb-4"></Avatars>

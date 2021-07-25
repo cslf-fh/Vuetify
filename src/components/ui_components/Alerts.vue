@@ -260,7 +260,7 @@ export default {
       let transition = 'transition';
       let transitions = this.transitions[this.transition];
       transitions === ''
-        ? (transition = '')
+        ? (transitions = '')
         : (transitions += `-${transition}`);
       return transitions;
     },

@@ -1,9 +1,9 @@
 <template>
   <v-container>
     <v-card class="background" flat>
-      <v-card-title class="text-h4">
+      <h1 class="text-h4">
         Vuetifyのコンポーネントのプロパティをいじってなんやかんやするやつ
-      </v-card-title>
+      </h1>
       <v-card-text class="text--primary text-subtitle-1">
         上記の通りです。公式ドキュメントにあるようなやつを、VueとVuetifyの学習を兼ねて作成しました。
         <br />

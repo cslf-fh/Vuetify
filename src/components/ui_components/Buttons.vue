@@ -243,7 +243,7 @@
           v-model="target"
           :max="targets.length - 1"
           :tick-labels="targets"
-          :disabled="link === 0"
+          :disabled="link !== 2"
         ></v-slider>
       </v-col>
     </v-row>
