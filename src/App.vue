@@ -292,6 +292,10 @@ export default {
               name: 'Calendars',
               link: '/components/#calendars',
             },
+            {
+              name: 'Cards',
+              link: '/components/#cards',
+            },
           ],
         },
       ],

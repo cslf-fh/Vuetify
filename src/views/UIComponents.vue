@@ -15,6 +15,7 @@
     <Buttons class="mb-4"></Buttons>
     <ButtonsFab class="mb-4"></ButtonsFab>
     <Calendars class="mb-4"></Calendars>
+    <Cards class="mb-4"></Cards>
   </v-container>
 </template>
 
@@ -31,6 +32,7 @@ import Breadcrumbs from '@/components/ui_components/Breadcrumbs.vue';
 import Buttons from '@/components/ui_components/Buttons.vue';
 import ButtonsFab from '@/components/ui_components/ButtonsFab.vue';
 import Calendars from '@/components/ui_components/Calendars.vue';
+import Cards from '@/components/ui_components/Cards.vue';
 
 export default {
   name: 'UIComponents',
@@ -47,6 +49,7 @@ export default {
     Buttons,
     ButtonsFab,
     Calendars,
+    Cards,
   },
 };
 </script>

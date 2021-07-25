@@ -246,6 +246,28 @@
      --><span class="code__tag">{{ tag }}</span><!--
      -->&gt;<!--
    --></span><!--
+   --><div v-if="tag2"><!--
+     --><br />&lt;<!--
+     --><span class="code__tag">{{ tag2 }}</span><!--
+     --><span v-if="!attr2.length">&gt;</span><!--
+     --><span v-if="attr2.length"><br /></span><!--
+     --><span v-for="(attr, index) in attr2" :key="index"><!--
+       -->&#9;<span class="code__attr--name">{{ attr.name }}</span><!--
+       --><span v-if="attr.value"><!--
+         -->="<!--
+         --><span class="code__attr--value">{{ attr.value }}</span><!--
+         -->"<!--
+       --></span><!--
+       --><br /><!--
+     --></span><!--
+     --><span v-if="attr2.length">&gt;</span><!--
+     --><span><!--
+       --><span v-if="texts2"><br />&#9;{{ text2 }}<br /></span><!--
+       -->&lt;/<!--
+       --><span class="code__tag">{{ tag2 }}</span><!--
+       -->&gt;<!--
+     --></span><!--
+   --></div><!--
  --></pre>
   </v-card>
 </template>
@@ -282,6 +304,10 @@ export default {
     attrNest3: Array,
     textsNest3: Boolean,
     textNest3: String,
+    tag2: String,
+    attr2: Array,
+    texts2: Boolean,
+    text2: String,
   },
   data() {
     return {
