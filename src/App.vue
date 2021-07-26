@@ -316,6 +316,10 @@ export default {
               name: 'ExpansionPanels',
               link: '/components/#expansion-panels',
             },
+            {
+              name: 'Footers',
+              link: '/components/#footers',
+            },
           ],
         },
       ],
