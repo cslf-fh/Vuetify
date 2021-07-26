@@ -3,19 +3,24 @@
     <v-card-title class="text-h4">Chips</v-card-title>
     <v-card-subtitle class="text--primary text-left text-subtitle-1 mt-0">
       小さな情報を伝えるのに使用する。
-      <br />
-      <code class="text-subtitle-1">close</code>
-      プロパティを使用しチップの表示を制御する場合は下の様に関数を利用し、
       <code class="text-subtitle-1">active</code>
-      プロパティを設定する(
-      <code class="text-subtitle-1">click:closeとupdate:active</code>
-      どちらかお好きな方を選択) 。
+      プロパティで表示を制御する。
       <br />
       <code class="text-subtitle-1">filter</code>
       プロパティを使用しアイコンを表示する場合は
       <code class="text-subtitle-1">input-value</code>
-      プロパティを設定する。
+      プロパティを設定する。単にアイコンを表示する場合は
+      <code class="text-subtitle-1">v-icon</code>
+      コンポーネント等をラップして使う。
+      <br />
+      <code class="text-subtitle-1">click:closeとupdate:active</code>
+      イベントがある。
+      <code class="text-subtitle-1">close</code>
+      プロパティを使用してチップの表示を制御する場合に使用する。
     </v-card-subtitle>
+    <v-card class="background text-left px-4" flat tile>
+      <div id="chips-link" class="pb-4">Link</div>
+    </v-card>
     <v-row no-gutters>
       <v-col cols="12" sm="8" lg="6">
         <v-banner class="banner-sticky" app shaped>
@@ -40,6 +45,9 @@
             :filter-icon="computedFilterIcon"
             :text-color="computedTextColor"
             :input-value="inputValue"
+            :to="link === 1 ? to : null"
+            :href="link === 2 ? href : null"
+            :target="computedTarget"
             @update:active="active = $event"
             >v-chip component
           </v-chip>
@@ -147,6 +155,19 @@
               :max="textColors.length - 1"
               :tick-labels="textColors"
             ></v-slider>
+            <v-slider
+              label="how to link"
+              v-model="link"
+              :max="links.length - 1"
+              :tick-labels="links"
+            ></v-slider>
+            <v-slider
+              label="target"
+              v-model="target"
+              :max="targets.length - 1"
+              :tick-labels="targets"
+              :disabled="link !== 2"
+            ></v-slider>
           </template>
         </Grid>
       </v-col>
@@ -188,8 +209,12 @@ export default {
       textColors: ['', 'success', 'red'],
       XLarge: false,
       XSmall: false,
-      model: 0,
-      array: [],
+      link: 0,
+      links: ['', 'to', 'href'],
+      target: 0,
+      targets: ['_blank', '_self', '_parent', '_top'],
+      to: './#chips-link',
+      href: './#/components/#chips-link',
     };
   },
   computed: {
@@ -225,6 +250,15 @@ export default {
       value += `${array}`;
       return value;
     },
+    computedLink() {
+      let link = this.links[this.link];
+      return link;
+    },
+    computedTarget() {
+      let target = this.targets[this.target];
+      this.link === 1 ? (target = '') : null;
+      return target;
+    },
     computedAttr() {
       return this.attrArray();
     },
@@ -259,6 +293,12 @@ export default {
         '$complete'
       );
       this.checkValue(attr, this.computedTextColor, 'text-color', '');
+      if (this.link === 1) {
+        this.checkValue(attr, this.to, 'to', '');
+      } else if (this.link === 2) {
+        this.checkValue(attr, this.href, 'href', '');
+        this.checkValue(attr, this.computedTarget, 'target', '');
+      }
       return attr;
     },
   },
