@@ -312,6 +312,10 @@ export default {
               name: 'Dividers',
               link: '/components/#dividers',
             },
+            {
+              name: 'ExpansionPanels',
+              link: '/components/#expansion-panels',
+            },
           ],
         },
       ],

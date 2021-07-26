@@ -18,6 +18,7 @@
     <Chips class="mb-4"></Chips>
     <Dialogs class="mb-4"></Dialogs>
     <Dividers class="mb-4"></Dividers>
+    <ExpansionPanels class="mb-4"></ExpansionPanels>
   </v-container>
 </template>
 
@@ -39,6 +40,7 @@ import Carousels from '@/components/ui_components/Carousels.vue';
 import Chips from '@/components/ui_components/Chips.vue';
 import Dialogs from '@/components/ui_components/Dialogs.vue';
 import Dividers from '@/components/ui_components/Dividers.vue';
+import ExpansionPanels from '@/components/ui_components/ExpansionPanels.vue';
 
 export default {
   name: 'UIComponents',
@@ -60,6 +62,7 @@ export default {
     Chips,
     Dialogs,
     Dividers,
+    ExpansionPanels,
   },
 };
 </script>
