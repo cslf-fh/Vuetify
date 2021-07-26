@@ -16,6 +16,7 @@
     <Cards class="mb-4"></Cards>
     <Carousels class="mb-4"></Carousels>
     <Chips class="mb-4"></Chips>
+    <Dialogs class="mb-4"></Dialogs>
   </v-container>
 </template>
 
@@ -35,6 +36,7 @@ import Calendars from '@/components/ui_components/Calendars.vue';
 import Cards from '@/components/ui_components/Cards.vue';
 import Carousels from '@/components/ui_components/Carousels.vue';
 import Chips from '@/components/ui_components/Chips.vue';
+import Dialogs from '@/components/ui_components/Dialogs.vue';
 
 export default {
   name: 'UIComponents',
@@ -54,6 +56,7 @@ export default {
     Cards,
     Carousels,
     Chips,
+    Dialogs,
   },
 };
 </script>

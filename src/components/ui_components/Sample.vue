@@ -12,6 +12,14 @@
         </v-banner>
       </v-col>
       <v-col cols="12" sm="4" lg="6">
+        <Grid switch="2">
+          <template v-slot:switch1>
+            <v-switch v-model="dark" label="dark" class="ma-0"></v-switch>
+          </template>
+          <template v-slot:switch2>
+            <v-switch v-model="light" label="light" class="ma-0"></v-switch>
+          </template>
+        </Grid>
         <Grid switch="">
           <template v-slot:switch></template>
           <template v-slot:slider></template>
@@ -34,6 +42,8 @@ export default {
   data() {
     return {
       attr: [],
+      dark: false,
+      light: false,
       model: 0,
       array: [],
     };

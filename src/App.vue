@@ -304,6 +304,10 @@ export default {
               name: 'Chips',
               link: '/components/#chips',
             },
+            {
+              name: 'Dialogs',
+              link: '/components/#dialogs',
+            },
           ],
         },
       ],
