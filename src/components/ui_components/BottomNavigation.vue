@@ -17,6 +17,9 @@
       選択しているボタンによって背景色を変えたい場合は
       <code class="text-subtitle-1">v-model</code>
       を使用すると、選択したボタンによってvalueがバインドされるので、それを使用する。
+      <br />
+      <code class="text-subtitle-1">changeとupdate:input-value</code>
+      イベントがある。
     </v-card-subtitle>
     <v-row no-gutters>
       <v-col cols="12" sm="8" lg="6">
@@ -64,7 +67,7 @@
                   class="my-4"
                   color="deep-purple"
                   outlined
-                  @click="(inputValue = !inputValue), (active = 'active')"
+                  @click="(inputValue = !inputValue), (active = !active)"
                 >
                   Toggle Navigation
                 </v-btn>
@@ -192,7 +195,7 @@ export default {
       hideOnScroll: false,
       horizontal: false,
       inputValue: true,
-      active: null,
+      active: true,
       mandatory: false,
       scrollThreshold: 0,
       shift: false,
@@ -237,7 +240,7 @@ export default {
       this.checkValue(attr, '#target-navigation', 'target-navigation', '');
       this.checkBoolean(attr, this.dark, 'dark');
       this.checkBoolean(attr, this.light, 'light');
-      this.checkValuePrefix(attr, this.active, ':', 'input-value', null);
+      this.checkValuePrefix(attr, this.active, ':', 'input-value', true);
       this.checkValue(
         attr,
         this.computedBackgroundColor,

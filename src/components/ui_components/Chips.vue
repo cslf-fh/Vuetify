@@ -13,8 +13,10 @@
       <code class="text-subtitle-1">v-icon</code>
       コンポーネント等をラップして使う。
       <br />
-      <code class="text-subtitle-1">click:closeとupdate:active</code>
-      イベントがある。
+      <code class="text-subtitle-1"
+        >click, click:close, inputとupdate:active</code
+      >
+      イベントがある。下は
       <code class="text-subtitle-1">close</code>
       プロパティを使用してチップの表示を制御する場合に使用する。
     </v-card-subtitle>

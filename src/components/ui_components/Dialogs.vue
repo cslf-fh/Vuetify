@@ -21,8 +21,7 @@
       <br />
       <code class="text-subtitle-1">activator</code>
       スロットがある。
-      <br />
-      <code class="text-subtitle-1">click:outside</code>
+      <code class="text-subtitle-1">click:outside, inputとkeydown</code>
       イベントがある。
     </v-card-subtitle>
     <v-row no-gutters>

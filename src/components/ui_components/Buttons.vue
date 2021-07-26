@@ -11,6 +11,8 @@
       <br />
       <code class="text-subtitle-1">loader</code>
       スロットがある。
+      <code class="text-subtitle-1">click</code>
+      イベントがある。
       <br />
       クリック時のローディングギミックは
       <LinkText

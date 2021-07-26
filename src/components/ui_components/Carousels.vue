@@ -18,6 +18,9 @@
       <code class="text-subtitle-1">prev</code>
       スロットにはプロパティ未設定)。
       <br />
+      <code class="text-subtitle-1">change</code>
+      イベントがある。
+      <br />
       サブコンポーネントには
       <code class="text-subtitle-1">v-carousel-item</code>
       がある。

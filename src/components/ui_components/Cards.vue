@@ -6,6 +6,8 @@
       <br />
       <code class="text-subtitle-1">progress</code>
       スロットがある。
+      <code class="text-subtitle-1">click</code>
+      イベントがある。
       <br />
       サブコンポーネントには
       <code class="text-subtitle-1">

@@ -19,8 +19,11 @@
       <br />
       <code class="text-subtitle-1">close</code>
       スロットではスロットプロパティに
-      <code class="text-subtitle-1">toggle</code
-      >を渡し、クリックイベントを挟むとアラートを閉じることができる。
+      <code class="text-subtitle-1">toggle</code>
+      を渡し、クリックイベントを挟むとアラートを閉じることができる。
+      <br />
+      <code class="text-subtitle-1">input</code>
+      イベントがある。
     </v-card-subtitle>
     <v-row no-gutters>
       <v-col cols="12" sm="8" lg="6">
