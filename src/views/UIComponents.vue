@@ -17,6 +17,7 @@
     <Carousels class="mb-4"></Carousels>
     <Chips class="mb-4"></Chips>
     <Dialogs class="mb-4"></Dialogs>
+    <Dividers class="mb-4"></Dividers>
   </v-container>
 </template>
 
@@ -37,6 +38,7 @@ import Cards from '@/components/ui_components/Cards.vue';
 import Carousels from '@/components/ui_components/Carousels.vue';
 import Chips from '@/components/ui_components/Chips.vue';
 import Dialogs from '@/components/ui_components/Dialogs.vue';
+import Dividers from '@/components/ui_components/Dividers.vue';
 
 export default {
   name: 'UIComponents',
@@ -57,6 +59,7 @@ export default {
     Carousels,
     Chips,
     Dialogs,
+    Dividers,
   },
 };
 </script>

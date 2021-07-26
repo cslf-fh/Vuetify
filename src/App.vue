@@ -308,6 +308,10 @@ export default {
               name: 'Dialogs',
               link: '/components/#dialogs',
             },
+            {
+              name: 'Dividers',
+              link: '/components/#dividers',
+            },
           ],
         },
       ],
