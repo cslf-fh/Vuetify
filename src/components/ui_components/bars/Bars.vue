@@ -9,8 +9,8 @@
       <code class="text-subtitle-1">v-abb-bar</code>
       コンポーネントでできることと大体変わらないと思うので割愛。
     </v-card-subtitle>
-    <AppBars id="app-bars" class="mb-4"></AppBars>
-    <SystemBars id="system-bars" class="mb-4"></SystemBars>
+    <AppBars class="mb-4"></AppBars>
+    <SystemBars class="mb-4"></SystemBars>
   </v-card>
 </template>
 
