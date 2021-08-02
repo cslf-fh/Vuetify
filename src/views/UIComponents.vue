@@ -20,6 +20,7 @@
     <Dividers class="mb-4"></Dividers>
     <ExpansionPanels class="mb-4"></ExpansionPanels>
     <Footers class="mb-4"></Footers>
+    <FormInputsAndControls class="mb-4"></FormInputsAndControls>
   </v-container>
 </template>
 
@@ -43,6 +44,7 @@ import Dialogs from '@/components/ui_components/Dialogs.vue';
 import Dividers from '@/components/ui_components/Dividers.vue';
 import ExpansionPanels from '@/components/ui_components/ExpansionPanels.vue';
 import Footers from '@/components/ui_components/Footers.vue';
+import FormInputsAndControls from '@/components/ui_components/form_inputs_and_controls/FormInputsAndControls.vue';
 
 export default {
   name: 'UIComponents',
@@ -66,6 +68,7 @@ export default {
     Dividers,
     ExpansionPanels,
     Footers,
+    FormInputsAndControls,
   },
 };
 </script>

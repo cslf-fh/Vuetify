@@ -320,6 +320,16 @@ export default {
               name: 'Footers',
               link: '/components/#footers',
             },
+            {
+              name: 'Form input & controls',
+              link: '/components/#form-inputs',
+              lists: [
+                {
+                  name: 'Autocompletes',
+                  link: '/components/#autocompletes',
+                },
+              ],
+            },
           ],
         },
       ],
